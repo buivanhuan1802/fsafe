@@ -9,21 +9,22 @@ import android.widget.Button;
 
 import com.project.final_project_fall_2020.R;
 import com.project.final_project_fall_2020.model.entity.User;
+import com.project.final_project_fall_2020.presenter.StartActivityContract;
 import com.project.final_project_fall_2020.presenter.StartActivityPresenter;
 import com.project.final_project_fall_2020.router.AppRouter;
 
 import java.util.List;
 
-public class StartActivity extends AppCompatActivity implements ViewInterface, View.OnClickListener {
+public class StartActivity extends AppCompatActivity implements StartActivityContract.View, View.OnClickListener {
     private Button btnLoginSupplier;
-    private StartActivityPresenter presenter;
+    private StartActivityContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-        initItems();
-        initPresenter();
+        presenter = new StartActivityPresenter(this);
+        initComponents();
         btnLoginSupplier.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,18 +36,12 @@ public class StartActivity extends AppCompatActivity implements ViewInterface, V
 
 
     @Override
-    public void initItems() {
-        btnLoginSupplier = findViewById(R.id.btnLoginAsSupplier);
-    }
-
-    @Override
-    public void initPresenter() {
-        presenter = new StartActivityPresenter(this);
-    }
-
-
-    @Override
     public void onClick(View v) {
 
+    }
+
+    @Override
+    public void initComponents() {
+        btnLoginSupplier = findViewById(R.id.btnLoginAsSupplier);
     }
 }

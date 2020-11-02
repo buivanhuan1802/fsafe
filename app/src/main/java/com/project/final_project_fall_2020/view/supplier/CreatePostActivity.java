@@ -6,19 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.project.final_project_fall_2020.R;
-import com.project.final_project_fall_2020.model.entity.Post;
-import com.project.final_project_fall_2020.view.ViewInterface;
 
-import java.util.List;
-
-public class CreatePostActivity extends AppCompatActivity implements ViewInterface, View.OnClickListener {
+public class CreatePostActivity extends AppCompatActivity implements  View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_post);
-        initItems();
-        initPresenter();
+
     }
 
     @Override
@@ -26,15 +21,7 @@ public class CreatePostActivity extends AppCompatActivity implements ViewInterfa
 
     }
 
-    @Override
-    public void initItems() {
 
-    }
-
-    @Override
-    public void initPresenter() {
-
-    }
 
 
 
