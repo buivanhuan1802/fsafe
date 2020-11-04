@@ -8,12 +8,9 @@ import android.view.View;
 import android.widget.Button;
 
 import com.project.final_project_fall_2020.R;
-import com.project.final_project_fall_2020.model.entity.User;
 import com.project.final_project_fall_2020.presenter.StartActivityContract;
 import com.project.final_project_fall_2020.presenter.StartActivityPresenter;
 import com.project.final_project_fall_2020.router.AppRouter;
-
-import java.util.List;
 
 public class StartActivity extends AppCompatActivity implements StartActivityContract.View, View.OnClickListener {
     private Button btnLoginSupplier;

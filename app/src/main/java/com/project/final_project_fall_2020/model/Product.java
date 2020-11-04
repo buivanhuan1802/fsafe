@@ -1,9 +1,11 @@
-package com.project.final_project_fall_2020.model.entity;
+package com.project.final_project_fall_2020.model;
+
+import com.project.final_project_fall_2020.model.IEntity;
 
 import java.io.Serializable;
 import java.util.List;
 
-public class Product implements  IEntity, Serializable {
+public class Product implements IEntity, Serializable {
     private int productId;
     private int userId;
     private String productName;

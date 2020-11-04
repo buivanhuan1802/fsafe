@@ -1,4 +1,6 @@
-package com.project.final_project_fall_2020.model.entity;
+package com.project.final_project_fall_2020.model;
+
+import com.project.final_project_fall_2020.model.IEntity;
 
 import java.io.Serializable;
 
