@@ -6,7 +6,7 @@ public interface StartActivityContract {
 
     }
 
-    interface Presenter {
+ interface Presenter {
 
     }
 }

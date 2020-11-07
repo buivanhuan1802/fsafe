@@ -10,8 +10,6 @@ import android.widget.Button;
 import com.project.final_project_fall_2020.R;
 import com.project.final_project_fall_2020.presenter.StartActivityContract;
 import com.project.final_project_fall_2020.presenter.StartActivityPresenter;
-import com.project.final_project_fall_2020.router.AppRouter;
-
 public class StartActivity extends AppCompatActivity implements StartActivityContract.View, View.OnClickListener {
     private Button btnLoginSupplier;
     private StartActivityContract.Presenter presenter;
@@ -25,8 +23,6 @@ public class StartActivity extends AppCompatActivity implements StartActivityCon
         btnLoginSupplier.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new AppRouter(AppRouter.SUPPLIER_LOGIN_ROUTER, getApplicationContext()).getIntent();
-                startActivity(intent);
             }
         });
     }
