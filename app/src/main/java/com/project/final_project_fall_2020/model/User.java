@@ -1,11 +1,9 @@
 package com.project.final_project_fall_2020.model;
 
-import com.project.final_project_fall_2020.model.IEntity;
-
 import java.io.Serializable;
 
-public class User implements IEntity, Serializable {
-    private int UserId;
+public class User implements Serializable {
+    private String UserId;
     private int appRole;
     private String userName;
     private String password;
@@ -22,7 +20,7 @@ public class User implements IEntity, Serializable {
     public User() {
     }
 
-    public User(int userId,int appRole, String userName, String password, String fullName, String certificateUrl, String phoneNumber, String email, String address, String avatarUrl, String dateCreated, String dateUpdated, boolean isActive) {
+    public User(String userId, int appRole, String userName, String password, String fullName, String certificateUrl, String phoneNumber, String email, String address, String avatarUrl, String dateCreated, String dateUpdated, boolean isActive) {
         UserId = userId;
         this.appRole = appRole;
         this.userName = userName;
@@ -46,11 +44,11 @@ public class User implements IEntity, Serializable {
         this.appRole = appRole;
     }
 
-    public int getUserId() {
+    public String getUserId() {
         return UserId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(String userId) {
         UserId = userId;
     }
 
@@ -140,5 +138,10 @@ public class User implements IEntity, Serializable {
 
     public void setActive(boolean active) {
         isActive = active;
+    }
+
+    @Override
+    public String toString() {
+        return this.fullName;
     }
 }

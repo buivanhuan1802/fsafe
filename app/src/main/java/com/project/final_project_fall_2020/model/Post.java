@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.util.List;
 
-public class Post implements IEntity, Serializable {
+public class Post implements Serializable {
     private int postId;
     private int userId;
     private String postTitle;

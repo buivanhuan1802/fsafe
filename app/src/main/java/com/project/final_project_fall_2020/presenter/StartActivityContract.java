@@ -17,6 +17,7 @@ public interface StartActivityContract {
         Context getContext();
 
         void startActivity(Intent intent);
+        Object getSystemService(String ct);
     }
 
     interface Presenter {
@@ -24,5 +25,6 @@ public interface StartActivityContract {
 
         void btnContinueAction();
 
+        boolean isNetWorkAvailable();
     }
 }

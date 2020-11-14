@@ -1,15 +1,17 @@
 package com.project.final_project_fall_2020.view;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Spinner;
 
-import com.google.firebase.database.FirebaseDatabase;
 import com.project.final_project_fall_2020.R;
 import com.project.final_project_fall_2020.presenter.StartActivityContract;
 import com.project.final_project_fall_2020.presenter.StartActivityPresenter;
@@ -34,11 +36,17 @@ public class StartActivity extends AppCompatActivity implements StartActivityCon
 
     }
 
+
     @Override
     public void initComponents() {
         spAppRole = findViewById(R.id.spRole);
         btnContinue = findViewById(R.id.btnContinue);
 
+    }
+
+    @Override
+    public Object getSystemService(@NonNull String name) {
+        return super.getSystemService(name);
     }
 
     @Override
