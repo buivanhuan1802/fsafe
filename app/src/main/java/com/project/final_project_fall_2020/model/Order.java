@@ -3,7 +3,7 @@ package com.project.final_project_fall_2020.model;
 import java.io.Serializable;
 import java.util.List;
 
-public class Order implements IEntity, Serializable {
+public class Order implements Serializable {
     private int orderId;
     private int userId;
     private int supplierId;

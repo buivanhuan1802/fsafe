@@ -1,10 +1,14 @@
 package com.project.final_project_fall_2020.presenter;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -28,10 +32,22 @@ public class StartActivityPresenter implements StartActivityContract.Presenter {
 
     public StartActivityPresenter(StartActivityContract.View view) {
         this.view = view;
-        db = FirebaseDatabase.getInstance().getReference();
-        view.initComponents();
-        loadDataToSpinner();
-        btnContinueAction();
+        if (isNetWorkAvailable()) {
+            db = FirebaseDatabase.getInstance().getReference();
+            view.initComponents();
+            loadDataToSpinner();
+            btnContinueAction();
+        } else {
+            Toast.makeText(view.getContext(), "You are offline now.\nPlease check your connection", Toast.LENGTH_LONG);
+        }
+    }
+
+    @Override
+    public boolean isNetWorkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) view.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
     @Override

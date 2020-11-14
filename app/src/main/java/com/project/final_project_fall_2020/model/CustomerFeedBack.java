@@ -2,12 +2,12 @@ package com.project.final_project_fall_2020.model;
 
 import java.io.Serializable;
 
-public class CustomerFeedBack implements IEntity, Serializable {
-    private  int feedBackId;
+public class CustomerFeedBack implements Serializable {
+    private int feedBackId;
     private int userId;
     private int productId;
     private int starts;
-    private String  confession;
+    private String confession;
 
     public CustomerFeedBack() {
     }
@@ -58,5 +58,10 @@ public class CustomerFeedBack implements IEntity, Serializable {
 
     public void setConfession(String confession) {
         this.confession = confession;
+    }
+
+    @Override
+    public String toString() {
+        return this.confession;
     }
 }

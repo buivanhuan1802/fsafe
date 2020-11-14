@@ -4,4 +4,6 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="whiteColor">#FFFFFF</color>
+    <color name="darkColor">#000000</color>
+    <color name="homeScreenColor">#04cf3a</color>
 </resources>
