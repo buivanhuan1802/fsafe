@@ -21,7 +21,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.project.final_project_fall_2020.R;
 import com.project.final_project_fall_2020.model.AppRole;
 import com.project.final_project_fall_2020.view.admin.AdminLoginActivity;
+
 import com.project.final_project_fall_2020.view.customer.LoginAsCustomerActivity;
+
 import com.project.final_project_fall_2020.view.supplier.LoginActivity;
 
 import java.util.List;
@@ -86,7 +88,11 @@ public class StartActivityPresenter implements StartActivityContract.Presenter {
                         intent = new Intent(view.getContext(), AdminLoginActivity.class);
                         break;
                     case 2:
+
                         intent = new Intent(view.getContext(), LoginAsCustomerActivity.class);
+
+                        //   intent = new Intent(view.getContext(), AdminLoginActivity.class);
+
                         break;
                     case 3:
                         intent = new Intent(view.getContext(), LoginActivity.class);
