@@ -36,6 +36,11 @@ public class User implements Serializable {
         this.isActive = isActive;
     }
 
+    public User(String userName, String email) {
+        this.userName = userName;
+        this.email = email;
+    }
+
     public int getAppRole() {
         return appRole;
     }

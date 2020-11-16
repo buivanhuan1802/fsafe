@@ -16,4 +16,7 @@
     <string name="systemError">Opps Something went wrong !\nplease restart app or contact to system admin</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="button_logout">Logout</string>
+
 </resources>
