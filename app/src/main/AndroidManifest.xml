@@ -12,22 +12,22 @@
         android:theme="@style/AppTheme">
         <activity android:name=".view.supplier.SupplierHomeActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".view.admin.AdminLoginActivity" />
         <activity android:name=".view.supplier.CreatePostActivity" />
         <activity android:name=".view.supplier.CreateSupplierActivity" />
         <activity
-            android:name=".view.supplier.LoginActivity"
+            android:name=".view.supplier.SupplierLoginActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".view.StartActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

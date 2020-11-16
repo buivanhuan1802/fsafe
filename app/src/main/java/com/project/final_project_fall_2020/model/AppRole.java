@@ -1,23 +1,29 @@
 package com.project.final_project_fall_2020.model;
 
 public class AppRole {
-    private int RoleId;
+    public final class EntityName {
+        public static final String TABLE_NAME = "app_role";
+        public static final String ROLE_ID = "id";
+        public static final String ROLE_NAME = "roleName";
+    }
+
+    private long id;
     private String roleName;
 
     public AppRole() {
     }
 
-    public AppRole(int roleId, String roleName) {
-        RoleId = roleId;
+    public AppRole(long id, String roleName) {
+        this.id = id;
         this.roleName = roleName;
     }
 
-    public int getRoleId() {
-        return RoleId;
+    public long getId() {
+        return id;
     }
 
-    public void setRoleId(int roleId) {
-        RoleId = roleId;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getRoleName() {

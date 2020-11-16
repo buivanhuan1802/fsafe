@@ -12,6 +12,7 @@ public interface SupplierOrderManagementActivityContract {
 
         CheckBox getCheckBookOnDelivery();
 
+
         CheckBox getCheckBookFinished();
 
         Context getContext();

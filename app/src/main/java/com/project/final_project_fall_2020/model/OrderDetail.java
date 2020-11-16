@@ -3,14 +3,22 @@ package com.project.final_project_fall_2020.model;
 import java.io.Serializable;
 
 public class OrderDetail implements Serializable {
+    public final class EntityName {
+        public static final String TABLE_NAME = "details";
+        public static final String ID = "id";
+        public static final String PRODUCT = "product";
+        public static final String QUANTITY = "quantity";
+        public static final String TOTAL_AMOUNT = "totalAmount";
+    }
+
     private long id;
-    private long productId;
+    private Product product;
     private long quantity;
     private double totalAmount;
 
-    public OrderDetail(long id, long productId, long quantity, double totalAmount) {
+    public OrderDetail(long id, Product product, long quantity, double totalAmount) {
         this.id = id;
-        this.productId = productId;
+        this.product = product;
         this.quantity = quantity;
         this.totalAmount = totalAmount;
     }
@@ -23,8 +31,8 @@ public class OrderDetail implements Serializable {
         return id;
     }
 
-    public long getProductId() {
-        return productId;
+    public Product getProduct() {
+        return product;
     }
 
     public long getQuantity() {
@@ -35,8 +43,8 @@ public class OrderDetail implements Serializable {
         id = id;
     }
 
-    public void setProductId(int productId) {
-        this.productId = productId;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     public void setQuantity(int quantity) {

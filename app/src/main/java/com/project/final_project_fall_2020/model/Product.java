@@ -4,11 +4,22 @@ import java.io.Serializable;
 import java.util.List;
 
 public class Product implements Serializable {
-    private int productId;
-    private int userId;
+
+    public final class EntityName {
+        public static final String TABLE_NAME = "products";
+        public static final String ID = "id";
+        public static final String SUPPLIER = "supplier";
+        public static final String PRODUCT_NAME = "productName";
+        public static final String PRICE = "price";
+        public static final String DATE_CREATED = "dateCreated";
+        public static final String DATE_UPDATED = "dateUpdated";
+        public static final String PRODUCT_IMAGES = "productImage";
+    }
+
+    private long id;
+    private User supplier;
     private String productName;
     private double price;
-    private double comparePrice;
     private String dateCreated;
     private String dateUpdated;
     private List<String> productImage;
@@ -17,31 +28,30 @@ public class Product implements Serializable {
 
     }
 
-    public Product(int productId, int userId, String productName, double price, double comparePrice, String dateCreated, String dateUpdated, List<String> productImage) {
-        this.productId = productId;
-        this.userId = userId;
+    public Product(long id, User supplier, String productName, double price, String dateCreated, String dateUpdated, List<String> productImage) {
+        this.id = id;
+        this.supplier = supplier;
         this.productName = productName;
         this.price = price;
-        this.comparePrice = comparePrice;
         this.dateCreated = dateCreated;
         this.dateUpdated = dateUpdated;
         this.productImage = productImage;
     }
 
-    public int getProductId() {
-        return productId;
+    public long getId() {
+        return id;
     }
 
-    public void setProductId(int productId) {
-        this.productId = productId;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public int getUserId() {
-        return userId;
+    public User getSupplier() {
+        return supplier;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setSupplier(User supplier) {
+        this.supplier = supplier;
     }
 
     public String getProductName() {
@@ -58,14 +68,6 @@ public class Product implements Serializable {
 
     public void setPrice(double price) {
         this.price = price;
-    }
-
-    public double getComparePrice() {
-        return comparePrice;
-    }
-
-    public void setComparePrice(double comparePrice) {
-        this.comparePrice = comparePrice;
     }
 
     public String getDateCreated() {

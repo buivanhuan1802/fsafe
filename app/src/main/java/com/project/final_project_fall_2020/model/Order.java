@@ -4,9 +4,18 @@ import java.io.Serializable;
 import java.util.List;
 
 public class Order implements Serializable {
+    public final  class  EntityName{
+        public static final String TABLE_NAME = "orders";
+        public static final String ID= "id";
+        public static final String USER = "user";
+        public static final String SUPPLIER = "supplier";
+        public static final String DATE_CREATED = "dateCreated";
+        public static final String STATUS = "status";
+        public static final String DETAILS = "details";
+    }
     private long id;
-    private String userId;
-    private String supplierId;
+    private User user;
+    private User supplier;
     private String dateCreated;
     private String status;
     List<OrderDetail> details;
@@ -14,10 +23,10 @@ public class Order implements Serializable {
     public Order() {
     }
 
-    public Order(long id, String userId, String supplierId, String dateCreated, String status, List<OrderDetail> details) {
+    public Order(long id, User user, User supplier, String dateCreated, String status, List<OrderDetail> details) {
         this.id = id;
-        this.userId = userId;
-        this.supplierId = supplierId;
+        this.user = user;
+        this.supplier = supplier;
         this.dateCreated = dateCreated;
         this.status = status;
         this.details = details;
@@ -31,20 +40,20 @@ public class Order implements Serializable {
         this.id = id;
     }
 
-    public String getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUser(User userId) {
+        this.user = userId;
     }
 
-    public String getSupplierId() {
-        return supplierId;
+    public User getSupplier() {
+        return supplier;
     }
 
-    public void setSupplierId(String supplierId) {
-        this.supplierId = supplierId;
+    public void setSupplier(User supplierId) {
+        this.supplier = supplier;
     }
 
     public String getDateCreated() {

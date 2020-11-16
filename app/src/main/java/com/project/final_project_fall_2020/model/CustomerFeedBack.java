@@ -3,52 +3,61 @@ package com.project.final_project_fall_2020.model;
 import java.io.Serializable;
 
 public class CustomerFeedBack implements Serializable {
-    private int feedBackId;
-    private int userId;
-    private int productId;
-    private int starts;
+    public final class EntityName {
+        public static final String TABLE_NAME = "customer_feedback";
+        public static final String ID = "id";
+        public static final String USER = "user";
+        public static final String PRODUCT = "product";
+        public static final String STARTS = "starts";
+        public static final String CONFESSION = "confession";
+    }
+
+    private long id;
+    private User user;
+    private Product product;
+    private String starts;
     private String confession;
 
     public CustomerFeedBack() {
     }
 
-    public CustomerFeedBack(int feedBackId, int userId, int productId, int starts, String confession) {
-        this.feedBackId = feedBackId;
-        this.userId = userId;
-        this.productId = productId;
+    public CustomerFeedBack(long id, User user, Product productId, String starts, String confession) {
+        this.id = id;
+        this.user = user;
+        this.product = productId;
         this.starts = starts;
         this.confession = confession;
     }
 
-    public int getFeedBackId() {
-        return feedBackId;
+    public long getId() {
+        return id;
     }
 
-    public void setFeedBackId(int feedBackId) {
-        this.feedBackId = feedBackId;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public int getUserId() {
-        return userId;
+    public User getUserId() {
+        return user;
     }
 
     public void setUserId(int userId) {
-        this.userId = userId;
+        this.user = user;
     }
 
-    public int getProductId() {
-        return productId;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setProductId(int productId) {
-        this.productId = productId;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
-    public int getStarts() {
+    public String getStarts() {
         return starts;
     }
 
-    public void setStarts(int starts) {
+    public void setStarts(String starts) {
         this.starts = starts;
     }
 
