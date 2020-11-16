@@ -15,6 +15,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.project.final_project_fall_2020.R;
+import com.project.final_project_fall_2020.model.Order;
+import com.project.final_project_fall_2020.model.OrderDetail;
 import com.project.final_project_fall_2020.utils.CommonConstant;
 import com.project.final_project_fall_2020.view.supplier.BusinessAnalysisFagment;
 import com.project.final_project_fall_2020.view.supplier.FeedBackFagment;
@@ -31,17 +33,6 @@ public class SupplierHomePresenter implements SupplierHomeActivityContract.Prese
     public SupplierHomePresenter(final SupplierHomeActivityContract.View view) {
         this.view = view;
         db = FirebaseDatabase.getInstance().getReference();
-        db.child("haha").push().setValue("huan").addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                Toast.makeText(view.getContext(),"Thanh COng",Toast.LENGTH_LONG).show();
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(view.getContext(),"taht bat",Toast.LENGTH_LONG).show();;
-            }
-        });
         loadDataToSpDashBoard();
         spinnerChangeItemAction();
     }

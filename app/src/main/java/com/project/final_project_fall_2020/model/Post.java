@@ -5,8 +5,22 @@ import java.sql.Date;
 import java.util.List;
 
 public class Post implements Serializable {
-    private int postId;
-    private int userId;
+    public final class EntityName {
+        public static final String TABLE_NAME = "posts";
+        public static final String ID = "id";
+        public static final String SUPPLIER = "supplier";
+        public static final String POST_TITLE = "postTitle";
+        public static final String POST_CONTENT = "postContent";
+        public static final String DATE_CREATED = "dateCreated";
+        public static final String DATE_UPDATED = "dateUpdated";
+        public static final String START_TIME = "startTime";
+        public static final String END_TIME = "endTime";
+        public static final String ENABLED = "enabled";
+        public static final String DETAILS = "details";
+    }
+
+    private long id;
+    private User supplier;
     private String postTitle;
     private String postContent;
     private String dateCreated;
@@ -20,9 +34,9 @@ public class Post implements Serializable {
 
     }
 
-    public Post(int postId, int userId, String postTitle, String postContent, String dateCreated, String dateUpdated, Date startTime, Date endTime, boolean enabled) {
-        this.postId = postId;
-        this.userId = userId;
+    public Post(long id, User supplier, String postTitle, String postContent, String dateCreated, String dateUpdated, Date startTime, Date endTime, boolean enabled) {
+        this.id = id;
+        this.supplier = supplier;
         this.postTitle = postTitle;
         this.postContent = postContent;
         this.dateCreated = dateCreated;
@@ -32,20 +46,20 @@ public class Post implements Serializable {
         this.enabled = enabled;
     }
 
-    public int getPostId() {
-        return postId;
+    public long getId() {
+        return id;
     }
 
-    public void setPostId(int postId) {
-        this.postId = postId;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public int getUserId() {
-        return userId;
+    public User getSupllier() {
+        return supplier;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setSupplier(User supplier) {
+        this.supplier = supplier;
     }
 
     public String getPostTitle() {

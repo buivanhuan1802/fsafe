@@ -17,7 +17,7 @@ import com.project.final_project_fall_2020.R;
 import com.project.final_project_fall_2020.presenter.SupplierActivityContract;
 import com.project.final_project_fall_2020.presenter.SupplierLoginPresenter;
 
-public class LoginActivity extends AppCompatActivity implements SupplierActivityContract.View, View.OnClickListener {
+public class SupplierLoginActivity extends AppCompatActivity implements SupplierActivityContract.View, View.OnClickListener {
     private Button btnLogin;
     private TextView txtUserName;
     private TextView txtPassword;

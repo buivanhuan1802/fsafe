@@ -3,28 +3,29 @@ package com.project.final_project_fall_2020.model;
 import java.io.Serializable;
 
 public class PostDetail implements Serializable {
-    private int Id;
-    private int productId;
 
-    public PostDetail(int id, int productId) {
-        Id = id;
+    private long id;
+    private long productId;
+
+    public PostDetail(long id, int productId) {
+        id = id;
         this.productId = productId;
     }
     public PostDetail(){}
 
-    public int getId() {
-        return Id;
+    public long getId() {
+        return id;
     }
 
-    public void setId(int id) {
-        Id = id;
+    public void setId(long id) {
+        id = id;
     }
 
-    public int getProductId() {
+    public long getProductId() {
         return productId;
     }
 
-    public void setProductId(int productId) {
+    public void setProductId(long productId) {
         this.productId = productId;
     }
 }
