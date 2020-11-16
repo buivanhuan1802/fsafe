@@ -53,9 +53,15 @@ public class User implements Serializable {
         this.isActive = isActive;
     }
 
+
     public AppRole getRole() {
         return role;
     }
+    public User(String userName, String email) {
+        this.userName = userName;
+        this.email = email;
+    }
+
 
     public void setRole(AppRole appRole) {
         this.role = role;

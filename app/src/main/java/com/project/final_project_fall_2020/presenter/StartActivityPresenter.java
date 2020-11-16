@@ -23,6 +23,9 @@ import com.project.final_project_fall_2020.model.AppRole;
 import com.project.final_project_fall_2020.view.admin.AdminLoginActivity;
 import com.project.final_project_fall_2020.view.supplier.SupplierLoginActivity;
 
+import com.project.final_project_fall_2020.view.customer.LoginAsCustomerActivity;
+
+
 import java.util.List;
 
 //this present to start activity
@@ -82,9 +85,11 @@ public class StartActivityPresenter implements StartActivityContract.Presenter {
                     Toast.makeText(view.getContext(), "Please choose role !", Toast.LENGTH_LONG);
                     return;
                 }
+
                 AppRole role = (AppRole) spAppRole.getSelectedItem();
-                if (role != null)
-                    switchRouter((int) role.getId());
+                Intent intent = null;
+                switchRouter((int) role.getId());
+
             }
         });
 
