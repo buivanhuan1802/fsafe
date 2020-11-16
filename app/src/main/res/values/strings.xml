@@ -14,9 +14,19 @@
     <string name="appSologan">Health First</string>
     <string name="loginError">UserName or Password is Incorrect !</string>
     <string name="systemError">Opps Something went wrong !\nplease restart app or contact to system admin</string>
+
+    <string name="postManagement">Post Management</string>
+    <string-array name="spSupplierDashBoard">
+        <item>Order Management</item>
+        <item>Post Management</item>
+        <item>FeedBack</item>
+        <item>Business Analyst</item>
+    </string-array>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="button_logout">Logout</string>
+
 
 </resources>

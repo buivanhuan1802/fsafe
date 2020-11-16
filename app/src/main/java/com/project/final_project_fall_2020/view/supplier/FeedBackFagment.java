@@ -2,28 +2,21 @@ package com.project.final_project_fall_2020.view.supplier;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import com.project.final_project_fall_2020.R;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link PostManagerFagement#newInstance} factory method to
+ * Use the {@link FeedBackFagment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class PostManagerFagement extends Fragment {
- private ListView listDisplay;
+public class FeedBackFagment extends Fragment {
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -33,7 +26,7 @@ public class PostManagerFagement extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public PostManagerFagement() {
+    public FeedBackFagment() {
         // Required empty public constructor
     }
 
@@ -43,11 +36,11 @@ public class PostManagerFagement extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment PostManagerFagement.
+     * @return A new instance of fragment FeedBackFagment.
      */
     // TODO: Rename and change types and number of parameters
-    public static PostManagerFagement newInstance(String param1, String param2) {
-        PostManagerFagement fragment = new PostManagerFagement();
+    public static FeedBackFagment newInstance(String param1, String param2) {
+        FeedBackFagment fragment = new FeedBackFagment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -68,17 +61,6 @@ public class PostManagerFagement extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_post_manager_fagement, container, false);
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        List<String> list = new ArrayList<>();
-        list.add("huasnd");
-        list.add("hieu");
-        listDisplay = getView().findViewById(R.id.listOrder);
-        ArrayAdapter<String> adt = new ArrayAdapter<>(getContext(),R.layout.custom_spinner_text,list);
-        listDisplay.setAdapter(adt);
+        return inflater.inflate(R.layout.fragment_feed_back_fagment, container, false);
     }
 }
