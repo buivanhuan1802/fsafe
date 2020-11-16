@@ -32,7 +32,7 @@ public class StartActivity extends AppCompatActivity implements StartActivityCon
 
 
     @Override
-    public void onClick(View v) {
+       public void onClick(View v) {
 
     }
 
