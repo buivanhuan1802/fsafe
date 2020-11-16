@@ -1,5 +1,6 @@
 package com.project.final_project_fall_2020.view.supplier;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,9 +11,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.ListView;
 
 import com.project.final_project_fall_2020.R;
+import com.project.final_project_fall_2020.presenter.SupplierOrderManagementActivityContract;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +25,7 @@ import java.util.List;
  * Use the {@link SupplierNewOrder#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SupplierNewOrder extends Fragment {
+public class SupplierNewOrder extends Fragment implements SupplierOrderManagementActivityContract.View {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -32,7 +35,11 @@ public class SupplierNewOrder extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private ListView listNewOrder;
+    private ListView listOrder;
+    private CheckBox cbProcessing;
+    private CheckBox cbOnDelivery;
+    private CheckBox cbFinished;
+    private SupplierOrderManagementActivityContract.Presenter presenter;
 
     public SupplierNewOrder() {
         // Required empty public constructor
@@ -76,11 +83,40 @@ public class SupplierNewOrder extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        List<String> list = new ArrayList<>();
-        list.add("huasnd");
-        list.add("hieu");
-        listNewOrder = getView().findViewById(R.id.listNewOrder);
-        ArrayAdapter<String> adt = new ArrayAdapter<>(getContext(),R.layout.custom_spinner_text,list);
-        listNewOrder.setAdapter(adt);
+        listOrder = getView().findViewById(R.id.listOrder);
+        cbFinished = getView().findViewById(R.id.cbFinished);
+        cbOnDelivery = getView().findViewById(R.id.cbDelivery);
+        cbProcessing = getView().findViewById(R.id.cbProcessing);
+
+
     }
+
+    @Override
+    public ListView getListDisplay() {
+        return listOrder;
+    }
+
+    @Override
+    public CheckBox getCheckBookProcessing() {
+        return cbProcessing;
+    }
+
+    @Override
+    public CheckBox getCheckBookOnDelivery() {
+        return cbOnDelivery;
+    }
+
+    @Override
+    public CheckBox getCheckBookFinished() {
+        return cbFinished;
+    }
+
+    @Nullable
+    @Override
+    public Context getContext() {
+        return super.getContext();
+    }
+
+
+
 }

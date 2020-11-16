@@ -32,7 +32,7 @@ public class StartActivityPresenter implements StartActivityContract.Presenter {
 
     public StartActivityPresenter(StartActivityContract.View view) {
         this.view = view;
-        if (isNetWorkAvailable()) {
+        if (!isNetWorkAvailable()) {
             db = FirebaseDatabase.getInstance().getReference();
             view.initComponents();
             loadDataToSpinner();

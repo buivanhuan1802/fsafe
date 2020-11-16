@@ -6,4 +6,5 @@
     <color name="whiteColor">#FFFFFF</color>
     <color name="darkColor">#000000</color>
     <color name="homeScreenColor">#04cf3a</color>
+    <color name="grey">#f7f7f7</color>
 </resources>

@@ -102,6 +102,7 @@ public class SupplierLoginPresenter implements SupplierActivityContract.Presente
         SharedPreferences.Editor editor = pref.edit();
         editor.putString(CommonConstant.PREFERENCE_LOGINED, json);
         editor.commit();
+
     }
 
     @Override

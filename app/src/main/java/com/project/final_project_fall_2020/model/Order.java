@@ -4,18 +4,18 @@ import java.io.Serializable;
 import java.util.List;
 
 public class Order implements Serializable {
-    private int orderId;
-    private int userId;
-    private int supplierId;
+    private long id;
+    private String userId;
+    private String supplierId;
     private String dateCreated;
-    private int status;
+    private String status;
     List<OrderDetail> details;
 
     public Order() {
     }
 
-    public Order(int orderId, int userId, int supplierId, String dateCreated, int status, List<OrderDetail> details) {
-        this.orderId = orderId;
+    public Order(long id, String userId, String supplierId, String dateCreated, String status, List<OrderDetail> details) {
+        this.id = id;
         this.userId = userId;
         this.supplierId = supplierId;
         this.dateCreated = dateCreated;
@@ -23,27 +23,27 @@ public class Order implements Serializable {
         this.details = details;
     }
 
-    public int getOrderId() {
-        return orderId;
+    public long getOrderId() {
+        return id;
     }
 
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
+    public void setOrderId(int id) {
+        this.id = id;
     }
 
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
-    public int getSupplierId() {
+    public String getSupplierId() {
         return supplierId;
     }
 
-    public void setSupplierId(int supplierId) {
+    public void setSupplierId(String supplierId) {
         this.supplierId = supplierId;
     }
 
@@ -55,11 +55,11 @@ public class Order implements Serializable {
         this.dateCreated = dateCreated;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -70,4 +70,9 @@ public class Order implements Serializable {
     public void setDetails(List<OrderDetail> details) {
         this.details = details;
     }
+
+    public long getId() {
+        return id;
+    }
+
 }
