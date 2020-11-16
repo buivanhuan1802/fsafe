@@ -35,7 +35,7 @@ public class StartActivityPresenter implements StartActivityContract.Presenter {
 
     public StartActivityPresenter(StartActivityContract.View view) {
         this.view = view;
-        if (!isNetWorkAvailable()) {
+        if (isNetWorkAvailable()) {
             db = FirebaseDatabase.getInstance().getReference();
             view.initComponents();
             loadDataToSpinner();
@@ -83,7 +83,7 @@ public class StartActivityPresenter implements StartActivityContract.Presenter {
                 Spinner spAppRole = view.getAppRoleSpinner();
                 AppRole role = (AppRole) spAppRole.getSelectedItem();
                 Intent intent = null;
-                switch (role.getRoleId()) {
+                switch ((int)role.getId()) {
                     case 1:
                         intent = new Intent(view.getContext(), AdminLoginActivity.class);
                         break;

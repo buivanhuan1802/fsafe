@@ -1,23 +1,23 @@
 package com.project.final_project_fall_2020.model;
 
 public class AppRole {
-    private int RoleId;
+    private long id;
     private String roleName;
 
     public AppRole() {
     }
 
-    public AppRole(int roleId, String roleName) {
-        RoleId = roleId;
+    public AppRole(long id, String roleName) {
+        this.id = id;
         this.roleName = roleName;
     }
 
-    public int getRoleId() {
-        return RoleId;
+    public long getId() {
+        return id;
     }
 
-    public void setRoleId(int roleId) {
-        RoleId = roleId;
+    public void setId(long id) {
+        id = id;
     }
 
     public String getRoleName() {

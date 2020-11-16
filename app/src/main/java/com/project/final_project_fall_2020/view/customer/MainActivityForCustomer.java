@@ -26,15 +26,15 @@ public class MainActivityForCustomer extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_for_customer);
 
-        btnLogout = findViewById(R.id.btnLogout);
-        txtName= findViewById(R.id.txtName);
-        txtEmail = findViewById(R.id.txtEmail);
-
-        Intent intent = getIntent();
-        User user1 = (User) intent.getSerializableExtra("user");
-
-        txtName.setText(user1.getUserName());
-        txtEmail.setText(user1.getEmail());
+//        btnLogout = findViewById(R.id.btnLogout);
+//        txtName= findViewById(R.id.txtName);
+//        txtEmail = findViewById(R.id.txtEmail);
+//
+//        Intent intent = getIntent();
+//        User user1 = (User) intent.getSerializableExtra("user");
+//
+//        txtName.setText(user1.getUserName());
+//        txtEmail.setText(user1.getEmail());
 
 //        btnLogout.setOnClickListener(new View.OnClickListener() {
 //            @Override
