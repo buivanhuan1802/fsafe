@@ -28,5 +28,6 @@ public interface SupplierOrderManagementActivityContract {
         void cbOndeliveryChangeState();
 
         void cbFinisedChangeState();
+        void loadDataToView();
     }
 }

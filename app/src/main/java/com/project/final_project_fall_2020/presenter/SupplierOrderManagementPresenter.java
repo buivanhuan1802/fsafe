@@ -54,5 +54,10 @@ public class SupplierOrderManagementPresenter implements SupplierOrderManagement
 
     }
 
+    @Override
+    public void loadDataToView() {
+
+    }
+
 
 }
