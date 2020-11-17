@@ -86,11 +86,9 @@ public class SupplierHomePresenter implements SupplierHomeActivityContract.Prese
         try {
             Fragment currentFagment = fm.findFragmentByTag(CommonConstant.CURRENT_FAGMENT);
             transaction.remove(currentFagment);
-            transaction.add(R.id.frameLayout, selected, tag);
             transaction.commit();
             CommonConstant.CURRENT_FAGMENT = tag;
         } catch (Exception e) {
-            transaction.add(R.id.frameLayout, new SupplierNewOrder(), tag);
             transaction.commit();
             CommonConstant.CURRENT_FAGMENT = tag;
         }

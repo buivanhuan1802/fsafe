@@ -5,18 +5,19 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".view.customer.ProfileAsCustomerActivity"></activity>
+        <activity android:name=".view.customer.ServiceAsCustomerActivity" />
+        <activity android:name=".view.customer.FastFoodAsCustomerActivity" />
+        <activity android:name=".view.customer.OfficeMealAsCustomerActivity" />
         <activity
             android:name=".view.supplier.SupplierHomeActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        </activity>
-
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".view.customer.MainActivityForCustomer"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -26,23 +27,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".view.admin.AdminLoginActivity" />
         <activity android:name=".view.supplier.CreatePostActivity" />
         <activity android:name=".view.supplier.CreateSupplierActivity" />
         <activity
             android:name=".view.customer.LoginAsCustomerActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-
-        </activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".view.supplier.SupplierLoginActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".view.StartActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        </activity>
-
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 
 </manifest>

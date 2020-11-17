@@ -43,7 +43,7 @@ public class SupplierHomeActivity extends AppCompatActivity implements SupplierH
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_supplier_home);
-        presenter = new SupplierHomePresenter(this);
+      //  presenter = new SupplierHomePresenter(this);
        // db = FirebaseDatabase.getInstance().getReference();
       //  Map<String, Object> map = new HashMap<>();
       //  OrderDetail dt = new OrderDetail(1, 1, 1, 100.0);
@@ -62,12 +62,12 @@ public class SupplierHomeActivity extends AppCompatActivity implements SupplierH
 
     @Override
     public Spinner getSpinner() {
-        return findViewById(R.id.spDashBoard);
+        return null;
     }
 
     @Override
     public FrameLayout getFrameLayout() {
-        return findViewById(R.id.frameLayout);
+        return null;
     }
 
     @Override
