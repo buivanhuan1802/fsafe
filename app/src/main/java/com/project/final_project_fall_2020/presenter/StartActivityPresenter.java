@@ -103,7 +103,7 @@ public class StartActivityPresenter implements StartActivityContract.Presenter {
                 intent = new Intent(view.getContext(), AdminLoginActivity.class);
                 break;
             case 1:
-                //   intent = new Intent(view.getContext(), AdminLoginActivity.class);
+                intent = new Intent(view.getContext(), LoginAsCustomerActivity.class);
                 break;
             case 2:
                 intent = new Intent(view.getContext(), SupplierLoginActivity.class);

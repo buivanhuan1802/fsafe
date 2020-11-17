@@ -45,6 +45,7 @@ public class SupplierHomeActivity extends AppCompatActivity implements SupplierH
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_supplier_home);
+
         presenter = new SupplierHomePresenter(this);
         // db = FirebaseDatabase.getInstance().getReference();
         //  Map<String, Object> map = new HashMap<>();
