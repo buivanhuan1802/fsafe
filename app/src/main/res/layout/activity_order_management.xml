@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_background"
+    tools:context=".view.supplier.OrderManagementActivity">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/side_menu_icon" />
+
+    <TextView
+        android:id="@+id/txtFullName"
+        android:layout_width="266dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal"
+        android:text="@string/orderManagement"
+        android:textColor="@color/darkColor"
+        android:textSize="25dp"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <GridLayout
+        android:id="@+id/gridLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="80dp"
+        android:background="@color/grey"
+        android:columnCount="3"
+        android:rowCount="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <CheckBox
+            android:id="@+id/cbProcessing"
+            android:layout_width="130dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="20dp"
+            android:checked="true"
+            android:text="Proccessing" />
+
+        <CheckBox
+            android:id="@+id/cbOnDelivery"
+            android:layout_width="130dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="20dp"
+            android:text="On Delivery" />
+
+        <CheckBox
+            android:id="@+id/cbFinished"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:text="Finished" />
+    </GridLayout>
+
+    <ListView
+        android:id="@+id/listDisplayOrder"
+        android:layout_width="415dp"
+        android:layout_height="604dp"
+        android:layout_marginTop="40dp"
+        android:background="@color/grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gridLayout2" />
+</androidx.constraintlayout.widget.ConstraintLayout>

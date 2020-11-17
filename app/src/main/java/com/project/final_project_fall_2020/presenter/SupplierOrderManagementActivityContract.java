@@ -23,6 +23,10 @@ public interface SupplierOrderManagementActivityContract {
 
         void listDisplayOnclicked();
 
-        void checkBookChangeState(CheckBox cb);
+        void cbProcessingChangeState();
+
+        void cbOndeliveryChangeState();
+
+        void cbFinisedChangeState();
     }
 }

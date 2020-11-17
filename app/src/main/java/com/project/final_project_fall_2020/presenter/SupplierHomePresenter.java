@@ -1,97 +1,69 @@
 package com.project.final_project_fall_2020.presenter;
 
+import android.content.Intent;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.project.final_project_fall_2020.R;
-import com.project.final_project_fall_2020.model.Order;
-import com.project.final_project_fall_2020.model.OrderDetail;
-import com.project.final_project_fall_2020.utils.CommonConstant;
-import com.project.final_project_fall_2020.view.supplier.BusinessAnalysisFagment;
-import com.project.final_project_fall_2020.view.supplier.FeedBackFagment;
-import com.project.final_project_fall_2020.view.supplier.PostManagerFagement;
-import com.project.final_project_fall_2020.view.supplier.SupplierNewOrder;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.project.final_project_fall_2020.view.supplier.BusinessAnalysisActivity;
+import com.project.final_project_fall_2020.view.supplier.FeedbackManagementActivity;
+import com.project.final_project_fall_2020.view.supplier.OrderManagementActivity;
+import com.project.final_project_fall_2020.view.supplier.PostManagementActivity;
 
 public class SupplierHomePresenter implements SupplierHomeActivityContract.Presenter {
 
     SupplierHomeActivityContract.View view;
     private DatabaseReference db;
+
     public SupplierHomePresenter(final SupplierHomeActivityContract.View view) {
         this.view = view;
+        initComponents();
         db = FirebaseDatabase.getInstance().getReference();
-        loadDataToSpDashBoard();
-        spinnerChangeItemAction();
+        // loadDataToSpDashBoard();
+        //spinnerChangeItemAction();
+    }
+
+    private void initComponents() {
+        cardBAManagementOnclicked();
+        cardFeedBackManagementOnclicked();
+        cardOrderManagementOnclicked();
+        cardPostManagementOnclicked();
     }
 
     @Override
-    public void loadDataToSpDashBoard() {
-        String[] arr = view.getResouces().getStringArray(R.array.spSupplierDashBoard);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(view.getContext(), R.layout.custom_spinner_text, arr);
-        view.getSpinner().setAdapter(adapter);
-    }
-
-    @Override
-    public void spinnerChangeItemAction() {
-        view.getSpinner().setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            final String tag = view.getSpinner().getSelectedItem().toString();
-
+    public void cardOrderManagementOnclicked() {
+        view.getOrderManagementCard().setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                fagmentSelection(position, tag);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
+            public void onClick(View v) {
+                Intent intent = new Intent(view.getContext(), OrderManagementActivity.class);
+                view.StartActivity(intent);
             }
         });
+
     }
 
     @Override
-    public void fagmentSelection(int position, String tag) {
-        Fragment selected;
-        switch (position) {
-            case 0:
-                selected = new SupplierNewOrder();
-                break;
-            case 1:
-                selected = new PostManagerFagement();
-                break;
-            case 2:
-                selected = new FeedBackFagment();
-                break;
-            case 3:
-                selected = new BusinessAnalysisFagment();
-                break;
-            default:
-                selected = new SupplierNewOrder();
-                break;
-        }
-        FragmentManager fm = view.getSupportFragmentManager();
-        FragmentTransaction transaction = fm.beginTransaction();
-        try {
-            Fragment currentFagment = fm.findFragmentByTag(CommonConstant.CURRENT_FAGMENT);
-            transaction.remove(currentFagment);
-            transaction.commit();
-            CommonConstant.CURRENT_FAGMENT = tag;
-        } catch (Exception e) {
-            transaction.commit();
-            CommonConstant.CURRENT_FAGMENT = tag;
-        }
+    public void cardPostManagementOnclicked() {
+        view.getPostManagementCard().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(view.getContext(), PostManagementActivity.class);
+                view.StartActivity(intent);
+            }
+        });
 
     }
+
+    @Override
+    public void cardFeedBackManagementOnclicked() {
+        view.getFeedbackManagementCard().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(view.getContext(), FeedbackManagementActivity.class);
+                view.StartActivity(intent);
+            }
+        });
+
+    }
+
 }
