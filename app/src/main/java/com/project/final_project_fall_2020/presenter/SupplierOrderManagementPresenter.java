@@ -40,7 +40,19 @@ public class SupplierOrderManagementPresenter implements SupplierOrderManagement
     }
 
     @Override
-    public void checkBookChangeState(CheckBox cb) {
+    public void cbProcessingChangeState() {
 
     }
+
+    @Override
+    public void cbOndeliveryChangeState() {
+
+    }
+
+    @Override
+    public void cbFinisedChangeState() {
+
+    }
+
+
 }

@@ -1,10 +1,12 @@
 package com.project.final_project_fall_2020.presenter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.widget.FrameLayout;
 import android.widget.Spinner;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.FragmentManager;
 
 public interface SupplierHomeActivityContract {
@@ -16,13 +18,25 @@ public interface SupplierHomeActivityContract {
         FrameLayout getFrameLayout();
 
         Resources getResouces();
-        FragmentManager getSupportFragmentManager();
+
+        void StartActivity(Intent intent);
+
+        CardView getOrderManagementCard();
+
+        CardView getPostManagementCard();
+
+        CardView getFeedbackManagementCard();
+
+        CardView getBusinessManagementCard();
     }
 
     interface Presenter {
-        void loadDataToSpDashBoard();
+        void cardOrderManagementOnclicked();
 
-        void spinnerChangeItemAction();
-        void fagmentSelection(int position, String tag);
+        void cardPostManagementOnclicked();
+
+        void cardFeedBackManagementOnclicked();
+
+        void cardBAManagementOnclicked();
     }
 }
