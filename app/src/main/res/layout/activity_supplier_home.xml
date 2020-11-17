@@ -7,29 +7,11 @@
     android:background="@color/homeScreenColor"
     tools:context=".view.supplier.SupplierHomeActivity">
 
-
-    <FrameLayout
-        android:id="@+id/frameLayout"
-        android:layout_width="417dp"
-        android:layout_height="665dp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spDashBoard">
-
-
-    </FrameLayout>
-
-    <Spinner
-        android:id="@+id/spDashBoard"
-        android:layout_width="405dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="4dp"
-        android:background="@color/grey"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:srcCompat="@drawable/side_menu_icon"
+        tools:layout_editor_absoluteX="5dp"
+        tools:layout_editor_absoluteY="2dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
