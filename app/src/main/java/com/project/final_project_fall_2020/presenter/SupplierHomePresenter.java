@@ -66,15 +66,4 @@ public class SupplierHomePresenter implements SupplierHomeActivityContract.Prese
 
     }
 
-    @Override
-    public void cardBAManagementOnclicked() {
-        view.getBusinessManagementCard().setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(view.getContext(), BusinessAnalysisActivity.class);
-                view.StartActivity(intent);
-            }
-        });
-
-    }
 }
