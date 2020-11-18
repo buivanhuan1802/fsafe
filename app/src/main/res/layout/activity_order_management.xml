@@ -42,33 +42,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <CheckBox
-            android:id="@+id/cbProcessing"
-            android:layout_width="130dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="20dp"
-            android:checked="true"
-            android:text="Proccessing" />
-
-        <CheckBox
-            android:id="@+id/cbOnDelivery"
-            android:layout_width="130dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="20dp"
-            android:text="On Delivery" />
-
-        <CheckBox
-            android:id="@+id/cbFinished"
+        <TextView
             android:layout_width="100dp"
-            android:layout_height="40dp"
-            android:text="Finished" />
+            android:layout_height="match_parent"
+            android:layout_marginEnd="20dp"
+            android:text="Filter By:"
+            android:textColor="@color/darkColor"
+            android:textSize="18dp" />
+
+        <Spinner
+            android:id="@+id/spOrderStatus"
+            android:layout_width="250dp"
+            android:layout_height="match_parent" />
     </GridLayout>
 
     <ListView
         android:id="@+id/listDisplayOrder"
         android:layout_width="415dp"
         android:layout_height="604dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="80dp"
         android:background="@color/grey"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

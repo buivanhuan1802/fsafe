@@ -11,8 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<<<<<<< HEAD
         <activity android:name=".view.customer.OfficeMealDetailAsCustomerActivity"></activity>
         <activity android:name=".view.customer.DrinkAsCustomerActivity" />
+=======
+        <activity
+            android:name=".view.supplier.DetailOrderActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+>>>>>>> 2baeeb2e11d7ca199d9a03fb95f7e2e1e21ceee8
         <activity android:name=".view.customer.ProfileAsCustomerActivity" />
         <activity android:name=".view.customer.ServiceAsCustomerActivity" />
         <activity android:name=".view.customer.FastFoodAsCustomerActivity" />
@@ -33,9 +39,12 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".view.supplier.SupplierHomeActivity"
+<<<<<<< HEAD
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".view.customer.MainActivityForCustomer"
+=======
+>>>>>>> 2baeeb2e11d7ca199d9a03fb95f7e2e1e21ceee8
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -43,6 +52,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
+=======
+        <activity
+            android:name=".view.customer.MainActivityForCustomer"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+>>>>>>> 2baeeb2e11d7ca199d9a03fb95f7e2e1e21ceee8
         <activity android:name=".view.admin.AdminLoginActivity" />
         <activity android:name=".view.supplier.CreateSupplierActivity" />
         <activity

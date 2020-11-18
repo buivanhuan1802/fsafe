@@ -6,19 +6,22 @@ public class OrderDetail implements Serializable {
     public final class EntityName {
         public static final String TABLE_NAME = "details";
         public static final String ID = "id";
-        public static final String PRODUCT = "product";
+        public static final String PRODUCT = "productId";
         public static final String QUANTITY = "quantity";
         public static final String TOTAL_AMOUNT = "totalAmount";
     }
 
     private long id;
-    private Product product;
+    private long productId;
     private long quantity;
     private double totalAmount;
 
-    public OrderDetail(long id, Product product, long quantity, double totalAmount) {
+    public OrderDetail() {
+    }
+
+    public OrderDetail(long id, long productId, long quantity, double totalAmount) {
         this.id = id;
-        this.product = product;
+        this.productId = productId;
         this.quantity = quantity;
         this.totalAmount = totalAmount;
     }
@@ -31,8 +34,8 @@ public class OrderDetail implements Serializable {
         return id;
     }
 
-    public Product getProduct() {
-        return product;
+    public long getProductId() {
+        return productId;
     }
 
     public long getQuantity() {
@@ -43,8 +46,8 @@ public class OrderDetail implements Serializable {
         id = id;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setProductId(long productId) {
+        this.productId = productId;
     }
 
     public void setQuantity(int quantity) {

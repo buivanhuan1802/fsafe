@@ -8,7 +8,7 @@ public class Post implements Serializable {
     public final class EntityName {
         public static final String TABLE_NAME = "posts";
         public static final String ID = "id";
-        public static final String SUPPLIER = "supplier";
+        public static final String SUPPLIER = "supplierId";
         public static final String POST_TITLE = "postTitle";
         public static final String POST_CONTENT = "postContent";
         public static final String DATE_CREATED = "dateCreated";
@@ -34,7 +34,11 @@ public class Post implements Serializable {
 
     }
 
+<<<<<<< HEAD
     public Post(long id, long supplierId, String postTitle, String postContent, String dateCreated, String dateUpdated, String startTime, String endTime, boolean enabled, List<PostDetail> details) {
+=======
+    public Post(long id, long supplierId, String postTitle, String postContent, String dateCreated, String dateUpdated, String startTime, String endTime, List<PostDetail> details, boolean enabled) {
+>>>>>>> 2baeeb2e11d7ca199d9a03fb95f7e2e1e21ceee8
         this.id = id;
         this.supplierId = supplierId;
         this.postTitle = postTitle;
@@ -44,6 +48,7 @@ public class Post implements Serializable {
         this.dateUpdated = dateUpdated;
         this.startTime = startTime;
         this.endTime = endTime;
+        this.details = details;
         this.enabled = enabled;
     }
 
@@ -63,12 +68,21 @@ public class Post implements Serializable {
         this.id = id;
     }
 
+<<<<<<< HEAD
     public long getSupllierId() {
         return supplierId;
     }
 
     public void setSupplier(long supplier) {
         this.supplierId = supplier;
+=======
+    public long getSupplierId() {
+        return supplierId;
+    }
+
+    public void setSupplierId(long supplierId) {
+        this.supplierId = supplierId;
+>>>>>>> 2baeeb2e11d7ca199d9a03fb95f7e2e1e21ceee8
     }
 
     public String getPostTitle() {
