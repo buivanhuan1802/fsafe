@@ -20,6 +20,11 @@
     <string name="feedBackManagement">\u0020Feedback Management</string>
     <string name="businessAnalyst">\u0020Business Analyst</string>
 
+    <string name="officeMeal">\u0020 Cơm Văn Phòng</string>
+    <string name="drink">\u0020Đồ uống</string>
+    <string name="fastFood">\u0020Đồ ăn nhanh</string>
+    <string name="otherService">\u0020Các dịch vụ khác</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

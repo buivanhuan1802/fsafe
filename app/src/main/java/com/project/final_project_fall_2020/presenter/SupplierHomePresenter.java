@@ -5,7 +5,6 @@ import android.view.View;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.project.final_project_fall_2020.view.supplier.BusinessAnalysisActivity;
 import com.project.final_project_fall_2020.view.supplier.FeedbackManagementActivity;
 import com.project.final_project_fall_2020.view.supplier.OrderManagementActivity;
 import com.project.final_project_fall_2020.view.supplier.PostManagementActivity;
@@ -63,6 +62,11 @@ public class SupplierHomePresenter implements SupplierHomeActivityContract.Prese
                 view.StartActivity(intent);
             }
         });
+
+    }
+
+    @Override
+    public void cardBAManagementOnclicked() {
 
     }
 

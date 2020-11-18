@@ -20,13 +20,13 @@ public class Post implements Serializable {
     }
 
     private long id;
-    private User supplier;
+    private long supplierId;
     private String postTitle;
     private String postContent;
     private String dateCreated;
     private String dateUpdated;
-    private Date startTime;
-    private Date endTime;
+    private String startTime;
+    private String endTime;
     private boolean enabled;
     private List<PostDetail> details;
 
@@ -34,16 +34,25 @@ public class Post implements Serializable {
 
     }
 
-    public Post(long id, User supplier, String postTitle, String postContent, String dateCreated, String dateUpdated, Date startTime, Date endTime, boolean enabled) {
+    public Post(long id, long supplierId, String postTitle, String postContent, String dateCreated, String dateUpdated, String startTime, String endTime, boolean enabled, List<PostDetail> details) {
         this.id = id;
-        this.supplier = supplier;
+        this.supplierId = supplierId;
         this.postTitle = postTitle;
         this.postContent = postContent;
+        this.details = details;
         this.dateCreated = dateCreated;
         this.dateUpdated = dateUpdated;
         this.startTime = startTime;
         this.endTime = endTime;
         this.enabled = enabled;
+    }
+
+    public List<PostDetail> getDetails() {
+        return details;
+    }
+
+    public void setDetails(List<PostDetail> details) {
+        this.details = details;
     }
 
     public long getId() {
@@ -54,12 +63,12 @@ public class Post implements Serializable {
         this.id = id;
     }
 
-    public User getSupllier() {
-        return supplier;
+    public long getSupllierId() {
+        return supplierId;
     }
 
-    public void setSupplier(User supplier) {
-        this.supplier = supplier;
+    public void setSupplier(long supplier) {
+        this.supplierId = supplier;
     }
 
     public String getPostTitle() {
@@ -94,19 +103,19 @@ public class Post implements Serializable {
         this.dateUpdated = dateUpdated;
     }
 
-    public Date getStartTime() {
+    public String getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Date startTime) {
+    public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
 
-    public Date getEndTime() {
+    public String getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(Date endTime) {
+    public void setEndTime(String endTime) {
         this.endTime = endTime;
     }
 
