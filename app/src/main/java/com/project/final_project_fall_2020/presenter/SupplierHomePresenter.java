@@ -66,4 +66,9 @@ public class SupplierHomePresenter implements SupplierHomeActivityContract.Prese
 
     }
 
+    @Override
+    public void cardBAManagementOnclicked() {
+
+    }
+
 }

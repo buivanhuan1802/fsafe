@@ -33,7 +33,7 @@
         android:layout_width="421dp"
         android:layout_height="665dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="20dp"
         android:padding="10dp"
         app:columnCount="1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,6 +48,7 @@
             android:id="@+id/cardOrderManagement"
             android:layout_width="match_parent"
             android:layout_height="130dp"
+            android:layout_marginEnd="5dp"
             android:layout_marginBottom="10dp"
             android:padding="30dp">
 
@@ -87,6 +88,7 @@
             android:id="@+id/cardPostManagement"
             android:layout_width="match_parent"
             android:layout_height="130dp"
+            android:layout_marginEnd="5dp"
             android:layout_marginBottom="10dp"
             android:padding="30dp">
 
@@ -125,6 +127,7 @@
             android:id="@+id/cardFeedbackManagement"
             android:layout_width="match_parent"
             android:layout_height="130dp"
+            android:layout_marginEnd="5dp"
             android:layout_marginBottom="10dp"
             android:padding="30dp">
 
@@ -163,6 +166,7 @@
             android:id="@+id/cardBA"
             android:layout_width="match_parent"
             android:layout_height="130dp"
+            android:layout_marginEnd="5dp"
             android:layout_marginBottom="10dp"
             android:padding="30dp">
 

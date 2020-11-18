@@ -17,7 +17,7 @@ public class Product implements Serializable {
     }
 
     private long id;
-    private User supplier;
+    private long supplierId;
     private String productName;
     private double price;
     private String dateCreated;
@@ -28,9 +28,9 @@ public class Product implements Serializable {
 
     }
 
-    public Product(long id, User supplier, String productName, double price, String dateCreated, String dateUpdated, List<String> productImage) {
+    public Product(long id, long supplierId, String productName, double price, String dateCreated, String dateUpdated, List<String> productImage) {
         this.id = id;
-        this.supplier = supplier;
+        this.supplierId = supplierId;
         this.productName = productName;
         this.price = price;
         this.dateCreated = dateCreated;
@@ -46,12 +46,12 @@ public class Product implements Serializable {
         this.id = id;
     }
 
-    public User getSupplier() {
-        return supplier;
+    public long getSupplierId() {
+        return supplierId;
     }
 
-    public void setSupplier(User supplier) {
-        this.supplier = supplier;
+    public void setSupplierId(long supplierId) {
+        this.supplierId = supplierId;
     }
 
     public String getProductName() {

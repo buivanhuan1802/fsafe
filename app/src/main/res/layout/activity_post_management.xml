@@ -7,4 +7,55 @@
     android:background="@drawable/app_background"
     tools:context=".view.supplier.PostManagementActivity">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/side_menu_icon" />
+
+    <TextView
+        android:id="@+id/txtFullName"
+        android:layout_width="266dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal"
+        android:text="@string/postManagement"
+        android:textColor="@color/darkColor"
+        android:textSize="25dp"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.gridlayout.widget.GridLayout
+        android:layout_width="407dp"
+        android:layout_height="657dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="1dp"
+        app:columnCount="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtFullName"
+        app:rowCount="2">
+
+        <Button
+            android:id="@+id/btnCreatePost"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Create Post"
+            android:textSize="20dp" />
+
+        <ListView
+            android:id="@+id/listPost"
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:dividerHeight="10dp">
+
+        </ListView>
+    </androidx.gridlayout.widget.GridLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

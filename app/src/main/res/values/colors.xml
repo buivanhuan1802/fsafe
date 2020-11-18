@@ -7,4 +7,5 @@
     <color name="darkColor">#000000</color>
     <color name="homeScreenColor">#6ff27a</color>
     <color name="grey">#f7f7f7</color>
+    <color name="redColor">#c21404</color>
 </resources>
