@@ -6,12 +6,16 @@ public class PostDetail implements Serializable {
 
     private long id;
     private long productId;
+    private boolean status;
 
-    public PostDetail(long id, int productId) {
-        id = id;
+    public PostDetail(long id, int productId, boolean status) {
+        this.id = id;
         this.productId = productId;
+        this.status = status;
     }
-    public PostDetail(){}
+
+    public PostDetail() {
+    }
 
     public long getId() {
         return id;
@@ -27,5 +31,13 @@ public class PostDetail implements Serializable {
 
     public void setProductId(long productId) {
         this.productId = productId;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    public boolean isStatus() {
+        return status;
     }
 }

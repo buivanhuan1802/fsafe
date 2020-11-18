@@ -1,33 +1,35 @@
 package com.project.final_project_fall_2020.presenter;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.widget.CheckBox;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 public interface SupplierOrderManagementActivityContract {
     interface View {
         ListView getListDisplay();
 
-        CheckBox getCheckBookProcessing();
-
-        CheckBox getCheckBookOnDelivery();
-
-
-        CheckBox getCheckBookFinished();
+        Spinner getSpOrderStatus();
 
         Context getContext();
+
+        Activity getActivity();
+
+        void startActivity(Intent intent);
+
     }
 
     interface Presenter {
-        void loadDataToListDisplay(String[] wishes);
 
-        void listDisplayOnclicked();
 
-        void cbProcessingChangeState();
+        void spinnerSelectedChangeAction();
 
-        void cbOndeliveryChangeState();
+        void onItemSpinnerClicked();
 
-        void cbFinisedChangeState();
+        void filterOrderByStatus(String status);
+
         void loadDataToView();
     }
 }
