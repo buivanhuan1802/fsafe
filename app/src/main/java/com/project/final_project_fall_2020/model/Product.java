@@ -51,7 +51,7 @@ public class Product implements Serializable {
     }
 
     public long getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(long id) {
@@ -59,7 +59,7 @@ public class Product implements Serializable {
     }
 
     public long getSupplierId() {
-        return supplierId;
+        return this.supplierId;
     }
 
     public void setSupplierId(long supplierId) {

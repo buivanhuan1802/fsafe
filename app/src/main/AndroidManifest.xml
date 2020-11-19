@@ -11,7 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.customer.OfficeMealDetailAsCustomerActivity"/>
+        <activity
+            android:name=".view.supplier.SupplierCreateProductActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".view.customer.OfficeMealDetailAsCustomerActivity" />
         <activity android:name=".view.customer.DrinkAsCustomerActivity" />
         <activity
             android:name=".view.supplier.SupplierCreatePostActivity"
@@ -24,7 +27,7 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".view.supplier.DetailOrderActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".view.customer.ProfileAsCustomerActivity" />
         <activity android:name=".view.customer.ServiceAsCustomerActivity" />
         <activity android:name=".view.customer.FastFoodAsCustomerActivity" />
@@ -48,30 +51,21 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".view.customer.MainActivityForCustomer"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        android:label=""
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-
-
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".view.admin.AdminLoginActivity" />
         <activity android:name=".view.supplier.CreateSupplierActivity" />
-        <activity android:name=".view.customer.LoginAsCustomerActivity"/>
-
-
+        <activity android:name=".view.customer.LoginAsCustomerActivity" />
         <activity
             android:name=".view.supplier.SupplierLoginActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".view.StartActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

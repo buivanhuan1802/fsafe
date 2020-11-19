@@ -19,6 +19,8 @@ import com.project.final_project_fall_2020.adapters.CustomProductAdapter;
 import com.project.final_project_fall_2020.model.PostDetail;
 import com.project.final_project_fall_2020.model.Post;
 import com.project.final_project_fall_2020.model.Product;
+import com.project.final_project_fall_2020.view.supplier.SupplierCreatePostActivity;
+import com.project.final_project_fall_2020.view.supplier.SupplierCreateProductActivity;
 import com.project.final_project_fall_2020.view.supplier.SupplierEditProductActivity;
 
 import java.util.ArrayList;
@@ -29,6 +31,7 @@ public class ListProductPresenter implements ListProductActivityContract.Present
     private ListProductActivityContract.View view;
     private DatabaseReference db;
     public static final String INTENT_KEY_TO_EDIT_PRODUCT = "PRODUCT_TO_EDIT";
+    public static final String INTENT_KEY_TO_CREATE_PRODUCT = "PRODUCT_TO_CREATE";
 
     public ListProductPresenter(ListProductActivityContract.View view) {
         this.view = view;
@@ -43,6 +46,10 @@ public class ListProductPresenter implements ListProductActivityContract.Present
         String data = view.getPassedIntent().getStringExtra(SupplierPostManagementPresenter.INTENT_KEY_TO_LIST_PRODUCT);
         if (data != null && !data.equals("")) {
             Post post = extractDataPassedFromPostActivity(data);
+            if (post.getDetails() == null || post.getDetails().isEmpty()) {
+                Toast.makeText(view.getContext(), "No Product in This Post, Please Add Product", Toast.LENGTH_LONG).show();
+                return;
+            }
             db.child(Product.EntityName.TABLE_NAME).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -111,8 +118,13 @@ public class ListProductPresenter implements ListProductActivityContract.Present
         view.getCreateButton().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(view.getContext(), SupplierEditProductActivity.class);
-                view.startActivity(intent);
+                Intent intent = new Intent(view.getContext(), SupplierCreateProductActivity.class);
+                Gson gson = new Gson();
+                String data = view.getPassedIntent().getStringExtra(SupplierPostManagementPresenter.INTENT_KEY_TO_LIST_PRODUCT);
+                if (data != null && !data.equals("")) {
+                    intent.putExtra(INTENT_KEY_TO_CREATE_PRODUCT, data);
+                    view.startActivity(intent);
+                }
             }
         });
     }

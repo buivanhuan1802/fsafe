@@ -34,4 +34,9 @@ public class Category {
     public void setCateName(String cateName) {
         this.cateName = cateName;
     }
+
+    @Override
+    public String toString() {
+        return this.cateName;
+    }
 }
