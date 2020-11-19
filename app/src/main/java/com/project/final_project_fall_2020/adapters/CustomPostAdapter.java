@@ -17,6 +17,8 @@ import com.project.final_project_fall_2020.R;
 import com.project.final_project_fall_2020.model.Post;
 import com.squareup.picasso.Picasso;
 
+import java.util.List;
+
 public class CustomPostAdapter extends BaseAdapter {
     private int layout;
     private Activity activity;

@@ -19,8 +19,8 @@ public class Post implements Serializable {
         public static final String DETAILS = "details";
     }
 
-    private long id;
-    private long supplierId;
+    private long postId;
+    private long userId;
     private String postTitle;
     private String postContent;
     private String dateCreated;
@@ -35,18 +35,22 @@ public class Post implements Serializable {
 
     }
 
+
+
     public Post(long id, long supplierId, String postTitle, String postContent, String dateCreated, String dateUpdated, String startTime, String endTime, String bannerurl, List<PostDetail> details, boolean enabled) {
-        this.id = id;
-        this.supplierId = supplierId;
+        this.postId= id;
+        this.userId = supplierId;
         this.postTitle = postTitle;
         this.postContent = postContent;
         this.dateCreated = dateCreated;
         this.dateUpdated = dateUpdated;
         this.startTime = startTime;
         this.endTime = endTime;
-        this.bannerurl = bannerurl;
-        this.details = details;
         this.enabled = enabled;
+    }
+
+    public long getPostId() {
+        return postId;
     }
 
     public String getBannerurl() {
@@ -61,24 +65,16 @@ public class Post implements Serializable {
         return details;
     }
 
-    public void setDetails(List<PostDetail> details) {
-        this.details = details;
+    public void setPostId(int postId) {
+        this.postId = postId;
     }
 
-    public long getId() {
-        return id;
+    public long getUserId() {
+        return userId;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public long getSupplierId() {
-        return supplierId;
-    }
-
-    public void setSupplierId(long supplierId) {
-        this.supplierId = supplierId;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getPostTitle() {

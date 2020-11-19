@@ -53,6 +53,9 @@ public class User implements Serializable {
         this.isActive = isActive;
     }
 
+    public User(long id){
+        this.id = id;
+    }
 
     public AppRole getRole() {
         return role;

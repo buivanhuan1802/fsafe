@@ -17,6 +17,14 @@ public class PostDetail implements Serializable {
     public PostDetail() {
     }
 
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
     public long getId() {
         return id;
     }
@@ -33,11 +41,4 @@ public class PostDetail implements Serializable {
         this.productId = productId;
     }
 
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
-
-    public boolean isStatus() {
-        return status;
-    }
 }
