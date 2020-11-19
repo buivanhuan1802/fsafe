@@ -19,14 +19,15 @@ public class Post implements Serializable {
         public static final String DETAILS = "details";
     }
 
-    private int postId;
-    private int userId;
+    private long postId;
+    private long userId;
     private String postTitle;
     private String postContent;
     private String dateCreated;
     private String dateUpdated;
     private String startTime;
     private String endTime;
+    private String bannerurl;
     private boolean enabled;
     private List<PostDetail> details;
 
@@ -34,9 +35,11 @@ public class Post implements Serializable {
 
     }
 
-    public Post(int postId, int userId, String postTitle, String postContent, String dateCreated, String dateUpdated, String startTime, String endTime, boolean enabled) {
-        this.postId = postId;
-        this.userId = userId;
+
+
+    public Post(long id, long supplierId, String postTitle, String postContent, String dateCreated, String dateUpdated, String startTime, String endTime, String bannerurl, List<PostDetail> details, boolean enabled) {
+        this.postId= id;
+        this.userId = supplierId;
         this.postTitle = postTitle;
         this.postContent = postContent;
         this.dateCreated = dateCreated;
@@ -46,15 +49,27 @@ public class Post implements Serializable {
         this.enabled = enabled;
     }
 
-    public int getPostId() {
+    public long getPostId() {
         return postId;
+    }
+
+    public String getBannerurl() {
+        return bannerurl;
+    }
+
+    public void setBannerurl(String bannerurl) {
+        this.bannerurl = bannerurl;
+    }
+
+    public List<PostDetail> getDetails() {
+        return details;
     }
 
     public void setPostId(int postId) {
         this.postId = postId;
     }
 
-    public int getUserId() {
+    public long getUserId() {
         return userId;
     }
 

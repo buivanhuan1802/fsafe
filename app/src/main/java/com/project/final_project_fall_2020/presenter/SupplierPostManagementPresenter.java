@@ -1,7 +1,11 @@
 package com.project.final_project_fall_2020.presenter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,14 +22,19 @@ import com.project.final_project_fall_2020.adapters.CustomPostAdapter;
 import com.project.final_project_fall_2020.model.Post;
 import com.project.final_project_fall_2020.model.User;
 import com.project.final_project_fall_2020.utils.CommonConstant;
+import com.project.final_project_fall_2020.view.supplier.CreateSupplierActivity;
+import com.project.final_project_fall_2020.view.supplier.ListProductOfPostActivity;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
 public class SupplierPostManagementPresenter implements SupplierPostManagementActivityContract.Presenter {
 
-    SupplierPostManagementActivityContract.View view;
-    DatabaseReference db;
+    private SupplierPostManagementActivityContract.View view;
+    private DatabaseReference db;
+    public static final String INTENT_KEY_TO_LIST_PRODUCT = "POST";
 
     public SupplierPostManagementPresenter(SupplierPostManagementActivityContract.View view) {
         this.view = view;
@@ -35,6 +44,8 @@ public class SupplierPostManagementPresenter implements SupplierPostManagementAc
 
     public void initComponents() {
         loadDataToListView();
+        onlistItemClicked();
+        onBtnCreatePostAction();
     }
 
     @Override
@@ -47,15 +58,18 @@ public class SupplierPostManagementPresenter implements SupplierPostManagementAc
             db.child(Post.EntityName.TABLE_NAME).orderByChild(Post.EntityName.SUPPLIER).equalTo(logined.getId()).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    GenericTypeIndicator<List<Post>> typeIndicator = new GenericTypeIndicator<List<Post>>() {
+                    GenericTypeIndicator<HashMap<String, Post>> typeIndicator = new GenericTypeIndicator<HashMap<String, Post>>() {
                     };
-                    List<Post> posts = snapshot.getValue(typeIndicator);
+                    HashMap<String, Post> posts = snapshot.getValue(typeIndicator);
                     Toast.makeText(view.getContext(), "insde", Toast.LENGTH_LONG).show();
                     if (posts == null) {
                         Toast.makeText(view.getContext(), "Nothing to display", Toast.LENGTH_LONG).show();
                     } else {
-                        posts.removeIf(x -> (x == null));
-                        CustomPostAdapter adapter = new CustomPostAdapter(view.getActivity(), R.layout.custom_listview_post, posts);
+                        List<Post> filterd = new ArrayList<>();
+                        for (Post x : posts.values()) {
+                            filterd.add(x);
+                        }
+                        CustomPostAdapter adapter = new CustomPostAdapter(view.getActivity(), R.layout.custom_listview_post, filterd);
                         view.getListViewPost().setAdapter(adapter);
                     }
                 }
@@ -69,5 +83,32 @@ public class SupplierPostManagementPresenter implements SupplierPostManagementAc
         } else {
 
         }
+
+    }
+
+    @Override
+    public void onlistItemClicked() {
+        view.getListViewPost().setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+                Post post = (Post) view.getListViewPost().getAdapter().getItem(position);
+                Gson gson = new Gson();
+                String data = gson.toJson(post);
+                Intent intent = new Intent(view.getContext(), ListProductOfPostActivity.class);
+                intent.putExtra(INTENT_KEY_TO_LIST_PRODUCT, data);
+                view.startActivity(intent);
+            }
+        });
+    }
+
+    @Override
+    public void onBtnCreatePostAction() {
+        view.getCreateButton().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(view.getContext(), CreateSupplierActivity.class);
+                view.startActivity(intent);
+            }
+        });
     }
 }

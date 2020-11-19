@@ -11,25 +11,20 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.FrameLayout;
-import android.widget.ListView;
-import android.widget.Spinner;
-import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.FirebaseApp;
+import android.widget.FrameLayout;
+
+import android.widget.Spinner;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.project.final_project_fall_2020.R;
-import com.project.final_project_fall_2020.model.Order;
+import com.project.final_project_fall_2020.model.Post;
 import com.project.final_project_fall_2020.model.OrderDetail;
+import com.project.final_project_fall_2020.model.PostDetail;
 import com.project.final_project_fall_2020.presenter.SupplierHomeActivityContract;
 import com.project.final_project_fall_2020.presenter.SupplierHomePresenter;
-import com.project.final_project_fall_2020.utils.CommonConstant;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -46,15 +41,14 @@ public class SupplierHomeActivity extends AppCompatActivity implements SupplierH
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_supplier_home);
 
-        presenter = new SupplierHomePresenter(this);
-        // db = FirebaseDatabase.getInstance().getReference();
+          presenter = new SupplierHomePresenter(this);
+      //  db = FirebaseDatabase.getInstance().getReference();
         //  Map<String, Object> map = new HashMap<>();
         //  OrderDetail dt = new OrderDetail(1, 1, 1, 100.0);
         //  List<OrderDetail> lor = new ArrayList<>();
         //  lor.add(dt);
         // Order x = new Order(1, "1", "1", "2020", "1", lor);
         //  map.put("1", x);
-
 
     }
 
