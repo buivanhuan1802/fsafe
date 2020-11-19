@@ -54,7 +54,7 @@
                     app:layout_row="1" />
 
                 <ImageView
-                    android:id="@+id/productImage"
+                    android:id="@+id/bannerUrl"
                     android:layout_width="match_parent"
                     android:layout_height="110dp"
                     android:layout_marginStart="3dp"

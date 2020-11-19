@@ -35,8 +35,6 @@ public class Post implements Serializable {
 
     }
 
-
-
     public Post(long id, long supplierId, String postTitle, String postContent, String dateCreated, String dateUpdated, String startTime, String endTime, String bannerurl, List<PostDetail> details, boolean enabled) {
         this.postId= id;
         this.userId = supplierId;
@@ -47,6 +45,8 @@ public class Post implements Serializable {
         this.startTime = startTime;
         this.endTime = endTime;
         this.enabled = enabled;
+        this.bannerurl = bannerurl;
+        this.details= details;
     }
 
     public long getPostId() {
@@ -132,4 +132,9 @@ public class Post implements Serializable {
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
+
+    public void setDetails(List<PostDetail> details) {
+        this.details = details;
+    }
+
 }

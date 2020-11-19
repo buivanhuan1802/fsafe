@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
@@ -56,17 +55,17 @@ public class CustomProductAdapter extends BaseAdapter {
             productName = convertView.findViewById(R.id.productName);
             price = convertView.findViewById(R.id.productPrice);
             dateCreated = convertView.findViewById(R.id.dateCreated);
-            imageView = convertView.findViewById(R.id.productImage);
+            imageView = convertView.findViewById(R.id.bannerUrl);
             convertView.setTag(R.id.productName, productName);
             convertView.setTag(R.id.productPrice, price);
             convertView.setTag(R.id.dateCreated, dateCreated);
-            convertView.setTag(R.id.productImage, imageView);
+            convertView.setTag(R.id.bannerUrl, imageView);
 
         } else {
             productName = (TextView) convertView.getTag(R.id.productName);
             price = (TextView) convertView.getTag(R.id.productPrice);
             dateCreated = (TextView) convertView.getTag(R.id.dateCreated);
-            imageView = (ImageView) convertView.getTag(R.id.productImage);
+            imageView = (ImageView) convertView.getTag(R.id.bannerUrl);
         }
         Product selected = products.get(position);
         productName.setText(selected.getProductName());
