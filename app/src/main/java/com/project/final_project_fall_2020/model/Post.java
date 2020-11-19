@@ -5,22 +5,8 @@ import java.sql.Date;
 import java.util.List;
 
 public class Post implements Serializable {
-    public final class EntityName {
-        public static final String TABLE_NAME = "posts";
-        public static final String ID = "id";
-        public static final String SUPPLIER = "supplierId";
-        public static final String POST_TITLE = "postTitle";
-        public static final String POST_CONTENT = "postContent";
-        public static final String DATE_CREATED = "dateCreated";
-        public static final String DATE_UPDATED = "dateUpdated";
-        public static final String START_TIME = "startTime";
-        public static final String END_TIME = "endTime";
-        public static final String ENABLED = "enabled";
-        public static final String DETAILS = "details";
-    }
-
-    private long id;
-    private long supplierId;
+    private int postId;
+    private int userId;
     private String postTitle;
     private String postContent;
     private String dateCreated;
@@ -34,55 +20,32 @@ public class Post implements Serializable {
 
     }
 
-<<<<<<< HEAD
-    public Post(long id, long supplierId, String postTitle, String postContent, String dateCreated, String dateUpdated, String startTime, String endTime, boolean enabled, List<PostDetail> details) {
-=======
-    public Post(long id, long supplierId, String postTitle, String postContent, String dateCreated, String dateUpdated, String startTime, String endTime, List<PostDetail> details, boolean enabled) {
->>>>>>> 2baeeb2e11d7ca199d9a03fb95f7e2e1e21ceee8
-        this.id = id;
-        this.supplierId = supplierId;
+    public Post(int postId, int userId, String postTitle, String postContent, String dateCreated, String dateUpdated, String startTime, String endTime, boolean enabled) {
+        this.postId = postId;
+        this.userId = userId;
         this.postTitle = postTitle;
         this.postContent = postContent;
-        this.details = details;
         this.dateCreated = dateCreated;
         this.dateUpdated = dateUpdated;
         this.startTime = startTime;
         this.endTime = endTime;
-        this.details = details;
         this.enabled = enabled;
     }
 
-    public List<PostDetail> getDetails() {
-        return details;
+    public int getPostId() {
+        return postId;
     }
 
-    public void setDetails(List<PostDetail> details) {
-        this.details = details;
+    public void setPostId(int postId) {
+        this.postId = postId;
     }
 
-    public long getId() {
-        return id;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-<<<<<<< HEAD
-    public long getSupllierId() {
-        return supplierId;
-    }
-
-    public void setSupplier(long supplier) {
-        this.supplierId = supplier;
-=======
-    public long getSupplierId() {
-        return supplierId;
-    }
-
-    public void setSupplierId(long supplierId) {
-        this.supplierId = supplierId;
->>>>>>> 2baeeb2e11d7ca199d9a03fb95f7e2e1e21ceee8
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getPostTitle() {
