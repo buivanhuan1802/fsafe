@@ -35,9 +35,15 @@
         <activity
             android:name=".view.supplier.DetailOrderActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".view.customer.ProfileAsCustomerActivity" />
-        <activity android:name=".view.customer.ServiceAsCustomerActivity" />
-        <activity android:name=".view.customer.FastFoodAsCustomerActivity" />
+        <activity
+            android:name=".view.customer.ProfileAsCustomerActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".view.customer.ServiceAsCustomerActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".view.customer.FastFoodAsCustomerActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".view.customer.OfficeMealAsCustomerActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
@@ -65,9 +71,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.admin.AdminLoginActivity" />
-        <activity android:name=".view.supplier.CreateSupplierActivity" />
-        <activity android:name=".view.customer.LoginAsCustomerActivity" />
+        <activity
+            android:name=".view.admin.AdminLoginActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".view.supplier.CreateSupplierActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".view.customer.LoginAsCustomerActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
         <activity
             android:name=".view.supplier.SupplierLoginActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />

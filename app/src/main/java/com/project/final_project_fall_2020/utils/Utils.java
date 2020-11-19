@@ -54,5 +54,12 @@ public class Utils {
         }
     }
 
+    public static void saveUserToPref(SharedPreferences pref, User data) {
+        Gson gson = new Gson();
+        String json = gson.toJson(data);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString(CommonConstant.PREFERENCE_LOGINED, json);
+        editor.commit();
 
+    }
 }

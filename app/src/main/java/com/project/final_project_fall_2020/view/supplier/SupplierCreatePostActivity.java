@@ -33,7 +33,7 @@ import com.project.final_project_fall_2020.view.customer.ServiceAsCustomerActivi
 
 public class SupplierCreatePostActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, SupplierCreatePostActivityContract.View {
 
-    private TextView txtName;
+
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
@@ -80,7 +80,7 @@ public class SupplierCreatePostActivity extends AppCompatActivity implements Nav
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        return sideMenuProcessing.onNavigationItemSelected(menuItem, this, drawerLayout);
+        return sideMenuProcessing.onNavigationItemSelected(menuItem, this, drawerLayout,"2");
     }
 
     @Override

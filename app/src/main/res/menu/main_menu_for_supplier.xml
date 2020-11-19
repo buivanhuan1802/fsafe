@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
+            android:id="@+id/nav_order"
             android:icon="@drawable/home_icon"
             android:title="Order Management" />
         <item
-            android:id="@+id/nav_officeMeal"
+            android:id="@+id/nav_post"
             android:icon="@drawable/cycle"
             android:title="Post Management" />
         <item
-            android:id="@+id/nav_fastFood"
+            android:id="@+id/nav_feedback"
             android:icon="@drawable/bus"
             android:title="Feedback Management" />
         <item
-            android:id="@+id/nav_service"
+            android:id="@+id/nav_ba"
             android:icon="@drawable/plane"
             android:title="Buiness Ananlysis" />
         <item
