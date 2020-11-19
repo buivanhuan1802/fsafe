@@ -6,7 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/app_background"
-    tools:context=".view.supplier.SupplierHomeActivity">
+    android:fitsSystemWindows="true"
+    tools:context=".view.supplier.SupplierHomeActivity"
+    tools:openDrawer="start">
+
+
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"

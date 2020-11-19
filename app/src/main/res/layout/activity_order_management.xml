@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/app_background"
     android:fitsSystemWindows="true"
-    tools:context=".view.customer.MainActivityForCustomer"
+    tools:context=".view.supplier.OrderManagementActivity"
     tools:openDrawer="start">
 
     <com.google.android.material.navigation.NavigationView
@@ -17,27 +17,6 @@
         android:layout_gravity="start"
         app:headerLayout="@layout/header"
         app:menu="@menu/main_menu_for_supplier" />
-
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/side_menu_icon" />
-
-    <TextView
-        android:id="@+id/txtFullName"
-        android:layout_width="266dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="16dp"
-        android:gravity="center_horizontal"
-        android:text="@string/orderManagement"
-        android:textColor="@color/darkColor"
-        android:textSize="25dp"
-        app:layout_constraintStart_toEndOf="@+id/image"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
         android:layout_width="match_parent"
