@@ -2,6 +2,7 @@ package com.project.final_project_fall_2020.view.customer;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,6 +16,11 @@ import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -23,8 +29,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.project.final_project_fall_2020.R;
 import com.project.final_project_fall_2020.model.Post;
 import com.project.final_project_fall_2020.model.PostDetail;
+import com.project.final_project_fall_2020.model.User;
 import com.project.final_project_fall_2020.presenter.CustomerHomeActivityContract;
 import com.project.final_project_fall_2020.presenter.CustomerHomePresenter;
+import com.project.final_project_fall_2020.utils.CommonConstant;
+import com.project.final_project_fall_2020.utils.Utils;
 import com.project.final_project_fall_2020.view.StartActivity;
 
 public class MainActivityForCustomer extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, CustomerHomeActivityContract.View {
@@ -47,9 +56,8 @@ public class MainActivityForCustomer extends AppCompatActivity implements Naviga
         setContentView(R.layout.activity_main_for_customer);
         presenter = new CustomerHomePresenter(this);
         txtFullName = findViewById(R.id.txtFullName);
-        String name = "Hoang Dinh Viet";
-
-        txtFullName.setText("Xin Chào " + name);
+        User logined = Utils.getLoginedUser(getApplicationContext());
+        txtFullName.setText("Xin Chào " + logined.getFullName());
 
         navigationView = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.toolbar);
@@ -72,8 +80,6 @@ public class MainActivityForCustomer extends AppCompatActivity implements Naviga
         mAuth = FirebaseAuth.getInstance();
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         myRef = mFirebaseDatabase.getReference();
-        FirebaseUser user  = mAuth.getCurrentUser();
-        Post post= new Post();
 
     }
 
@@ -111,6 +117,16 @@ public class MainActivityForCustomer extends AppCompatActivity implements Naviga
                 break;
             case R.id.nav_logout:
                 Intent intent4 = new Intent(MainActivityForCustomer.this, StartActivity.class);
+                GoogleSignInOptions gso = new GoogleSignInOptions.
+                        Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).
+                        build();
+
+                GoogleSignInClient googleSignInClient = GoogleSignIn.getClient(getApplicationContext(), gso);
+                googleSignInClient.signOut();
+                SharedPreferences mySPrefs = getSharedPreferences(CommonConstant.PREFERENCE_LOGINED, Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = mySPrefs.edit();
+                editor.remove(CommonConstant.PREFERENCE_LOGINED);
+                editor.apply();
                 startActivity(intent4);
                 break;
         }
