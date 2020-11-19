@@ -41,6 +41,7 @@ public class SupplierPostManagementPresenter implements SupplierPostManagementAc
     public SupplierPostManagementPresenter(SupplierPostManagementActivityContract.View view) {
         this.view = view;
         db = FirebaseDatabase.getInstance().getReference();
+        db.keepSynced(true);
         initComponents();
     }
 
@@ -62,7 +63,7 @@ public class SupplierPostManagementPresenter implements SupplierPostManagementAc
                     List<Post> list = new ArrayList<>();
                     for (DataSnapshot dt : snapshot.getChildren()) {
                         Post post = dt.getValue(typeIndicator);
-                        if (post.getUserId() == logined.getId()) {
+                        if (post.getUserId() == logined.getId() && post.isEnabled()) {
                             list.add(post);
                         }
                     }
