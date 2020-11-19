@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Product implements Serializable {
 
+
     public final class EntityName {
         public static final String TABLE_NAME = "products";
         public static final String ID = "id";
@@ -14,7 +15,7 @@ public class Product implements Serializable {
         public static final String DATE_CREATED = "dateCreated";
         public static final String DATE_UPDATED = "dateUpdated";
         public static final String PRODUCT_IMAGES = "productImage";
-        public static final String CATEGORY = "category";
+        public static final String CATEGORY = "categoryId";
     }
 
     private long id;
