@@ -53,6 +53,13 @@ public class User implements Serializable {
         this.isActive = isActive;
     }
 
+    public User(long id, String name, String address, String phoneNumber){
+        this.id=id;
+        this.userName=name;
+        this.address= address;
+        this.phoneNumber=phoneNumber;
+    }
+
     public User(long id){
         this.id = id;
     }

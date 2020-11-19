@@ -12,15 +12,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".view.customer.ListProductOfPost"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-        <activity android:name=".view.customer.OfficeMealDetailAsCustomerActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".view.customer.AddToCardAsCustomerActivity"></activity>
+        <activity
+            android:name=".view.customer.ListProductOfPost"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".view.customer.OfficeMealDetailAsCustomerActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".view.supplier.SupplierCreateProductActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".view.customer.OfficeMealDetailAsCustomerActivity" />
         <activity android:name=".view.customer.DrinkAsCustomerActivity" />
         <activity
             android:name=".view.supplier.SupplierCreatePostActivity"
@@ -55,10 +56,15 @@
         <activity
             android:name=".view.supplier.SupplierHomeActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity 
+        <activity
             android:name=".view.customer.MainActivityForCustomer"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-     
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".view.admin.AdminLoginActivity" />
         <activity android:name=".view.supplier.CreateSupplierActivity" />
         <activity android:name=".view.customer.LoginAsCustomerActivity" />
@@ -68,11 +74,6 @@
         <activity
             android:name=".view.StartActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
