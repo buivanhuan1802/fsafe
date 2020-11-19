@@ -6,24 +6,30 @@ import android.content.Intent;
 import android.widget.Button;
 import android.widget.ListView;
 
-public interface SupplierPostManagementActivityContract {
-    interface View {
-        ListView getListViewPost();
+import com.project.final_project_fall_2020.model.Post;
 
+public interface ListProductActivityContract {
+    interface View {
         Context getContext();
+
+        ListView getListProduct();
 
         Activity getActivity();
 
         void startActivity(Intent intent);
 
+        Intent getPassedIntent();
+
         Button getCreateButton();
     }
 
     interface Presenter {
-        void loadDataToListView();
+        void loadDataToListProduct();
 
-        void onlistItemClicked();
+        void onclickListProductItem();
 
-        void onBtnCreatePostAction();
+        Post extractDataPassedFromPostActivity(String data);
+
+        void onClickCreateProduct();
     }
 }
