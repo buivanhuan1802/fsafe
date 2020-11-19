@@ -1,5 +1,6 @@
 package com.project.final_project_fall_2020.view.customer;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -31,6 +32,7 @@ import com.project.final_project_fall_2020.model.OrderDetail;
 import com.project.final_project_fall_2020.model.Post;
 import com.project.final_project_fall_2020.model.Product;
 import com.project.final_project_fall_2020.model.User;
+import com.project.final_project_fall_2020.utils.CommonConstant;
 import com.squareup.picasso.Picasso;
 
 import java.text.DateFormat;
@@ -38,10 +40,11 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 public class OfficeMealDetailAsCustomerActivity extends AppCompatActivity {
-    public static List<Order> orderList = new ArrayList<>();
+    public static HashMap<Long, List<OrderDetail>> orderList = new HashMap<>();
     private TextView txtNameRestaurant;
     private TextView txtAddressRestaurant;
     private TextView txtNameProduct;
@@ -160,14 +163,37 @@ public class OfficeMealDetailAsCustomerActivity extends AppCompatActivity {
                 long id = 2020112011;
                 String dateCreate ="2020-11-20";
                 String status = "2";
-                String supplierId = product1.getSupplierId()+"";
+                long supplierId = product1.getSupplierId();
                 List<OrderDetail> orderDetailList = new ArrayList<>();
+                long detailId = 0;
+                long productId = product1.getId();
+                long quantityDetail = 2;
+                double totalAmountDetail = 2 *  product1.getPrice();
+                long userId = 3;
+                long totalAmount = 0;
+                for (int i =0; i < orderDetailList.size(); i++){
+                    totalAmount += orderDetailList.get(i).getTotalAmount();
+                }
+//                Order order = new Order();
+//                order.setId(id);
+//                order.setDateCreated(dateCreate);
+//                order.setSupplierId(supplierId);
+//                order.setDetails(orderDetailList);
+//                order.setStatus(status);
+//                order.setTotalAmount(totalAmount);
+//                order.setUserId(userId);
 
-//                ref.child(Order.EntityName.TABLE_NAME).child(order.getId()+"").setValue...
-//                SharedPreferences preferences = getSharedPreferences()
+
+
+
+                SharedPreferences sharedPreferences = getSharedPreferences(CommonConstant.PREFERENCE_ORDER +"" +userId, Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                Gson gson1 = new Gson();
+                String data = gson1.toJson(orderList);
+                editor.putString("list", data);
+                editor.commit();
             }
         });
-
-
     }
+
 }

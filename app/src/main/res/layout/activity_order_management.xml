@@ -39,8 +39,6 @@
         app:layout_constraintStart_toEndOf="@+id/image"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <GridLayout
-        android:id="@+id/gridLayout2"
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
