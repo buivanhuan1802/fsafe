@@ -133,7 +133,7 @@ public class SupplierEditProductPresenter implements SupplierEditProductActivity
                         String createdDate = sdf.format(Calendar.getInstance().getTime());
                         List<String> listImage = new ArrayList<>();
                         listImage.add(url);
-                        Product product = new Product(productId, logined.getId(), productName, Double.parseDouble(price), createdDate, "","1", listImage);
+                        Product product = new Product(productId, logined.getId(), productName, Double.parseDouble(price), "1", createdDate, createdDate, listImage);
                         ref.push().getKey();
                         List<Product> list = new ArrayList<>();
                         list.add(product);
