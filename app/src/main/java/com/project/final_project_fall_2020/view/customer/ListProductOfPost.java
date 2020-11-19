@@ -17,36 +17,44 @@ import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 import com.project.final_project_fall_2020.R;
-import com.project.final_project_fall_2020.adapters.CustomPostAdapter;
+import com.project.final_project_fall_2020.adapters.CustomProductAdapter;
 import com.project.final_project_fall_2020.model.Post;
+import com.project.final_project_fall_2020.model.PostDetail;
+import com.project.final_project_fall_2020.model.Product;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class OfficeMealAsCustomerActivity extends AppCompatActivity {
+public class ListProductOfPost extends AppCompatActivity {
     private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_office_meal);
+        setContentView(R.layout.activity_list_product_of_post2);
         listView = findViewById(R.id.listView);
-
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child(Post.EntityName.TABLE_NAME);
+        Gson gson = new Gson();
+        String data = getIntent().getStringExtra("key");
+        Post post  = gson.fromJson(data, Post.class);
+        List<Long> listProductId = new ArrayList<>();
+        for (PostDetail ptd : post.getDetails()) {
+            listProductId.add(ptd.getProductId());
+        }
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child(Product.EntityName.TABLE_NAME);
         reference.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                GenericTypeIndicator<Post> typeIndicator = new GenericTypeIndicator<Post>() {
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                GenericTypeIndicator<Product> typeIndicator = new GenericTypeIndicator<Product>() {
                 };
-
-                List<Post> posts = new ArrayList<>();
-                for (DataSnapshot x : dataSnapshot.getChildren()) {
-                    posts.add(x.getValue(typeIndicator));
+                List<Product> filtered = new ArrayList<>();
+                for (DataSnapshot x : snapshot.getChildren()) {
+                    Product prd = x.getValue(typeIndicator);
+                    if (listProductId.contains(prd.getId())) {
+                        filtered.add(prd);
+                    }
                 }
-
-                CustomPostAdapter adapter = new CustomPostAdapter(OfficeMealAsCustomerActivity.this, R.layout.custom_listview_post, posts);
+                CustomProductAdapter adapter = new CustomProductAdapter(ListProductOfPost.this,R.layout.custom_listview_product,filtered);
                 listView.setAdapter(adapter);
-
             }
 
             @Override
@@ -54,15 +62,14 @@ public class OfficeMealAsCustomerActivity extends AppCompatActivity {
 
             }
         });
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(OfficeMealAsCustomerActivity.this, ListProductOfPost.class);
-                Post selected = (Post) listView.getAdapter().getItem(position);
+                Intent intent = new Intent(ListProductOfPost.this, OfficeMealDetailAsCustomerActivity.class);
+                Product selected = (Product) listView.getAdapter().getItem(position);
                 Gson gson = new Gson();
                 String data = gson.toJson(selected);
-                intent.putExtra("key",data);
+                intent.putExtra("key", data);
                 startActivity(intent);
             }
         });

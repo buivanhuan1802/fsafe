@@ -35,7 +35,6 @@ public class Post implements Serializable {
 
     }
 
-
     public Post(long id, long supplierId, String postTitle, String postContent, String dateCreated, String dateUpdated, String startTime, String endTime, String bannerurl, List<PostDetail> details, boolean enabled) {
         this.postId = id;
         this.userId = supplierId;

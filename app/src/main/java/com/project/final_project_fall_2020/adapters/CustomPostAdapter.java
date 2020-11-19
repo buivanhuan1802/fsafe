@@ -17,8 +17,6 @@ import com.project.final_project_fall_2020.R;
 import com.project.final_project_fall_2020.model.Post;
 import com.squareup.picasso.Picasso;
 
-import java.util.List;
-
 public class CustomPostAdapter extends BaseAdapter {
     private int layout;
     private Activity activity;
@@ -55,15 +53,15 @@ public class CustomPostAdapter extends BaseAdapter {
             convertView = activity.getLayoutInflater().inflate(layout, null);
             postTitle = convertView.findViewById(R.id.productName);
             openTime = convertView.findViewById(R.id.postOpeningTime);
-            imageView = convertView.findViewById(R.id.productImage);
+            imageView = convertView.findViewById(R.id.bannerUrl);
             convertView.setTag(R.id.productName, postTitle);
             convertView.setTag(R.id.postOpeningTime, openTime);
-            convertView.setTag(R.id.productImage, imageView);
+            convertView.setTag(R.id.bannerUrl, imageView);
 
         } else {
             postTitle = (TextView) convertView.getTag(R.id.productName);
             openTime = (TextView) convertView.getTag(R.id.postOpeningTime);
-            imageView = (ImageView) convertView.getTag(R.id.productImage);
+            imageView = (ImageView) convertView.getTag(R.id.bannerUrl);
         }
         Post post = posts.get(position);
         postTitle.setText(post.getPostTitle());
