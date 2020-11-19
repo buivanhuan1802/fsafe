@@ -27,6 +27,7 @@ public class Post implements Serializable {
     private String dateUpdated;
     private String startTime;
     private String endTime;
+    private String bannerurl;
     private boolean enabled;
     private List<PostDetail> details;
 
@@ -34,7 +35,7 @@ public class Post implements Serializable {
 
     }
 
-    public Post(long id, long supplierId, String postTitle, String postContent, String dateCreated, String dateUpdated, String startTime, String endTime, List<PostDetail> details, boolean enabled) {
+    public Post(long id, long supplierId, String postTitle, String postContent, String dateCreated, String dateUpdated, String startTime, String endTime, String bannerurl, List<PostDetail> details, boolean enabled) {
         this.id = id;
         this.supplierId = supplierId;
         this.postTitle = postTitle;
@@ -43,8 +44,17 @@ public class Post implements Serializable {
         this.dateUpdated = dateUpdated;
         this.startTime = startTime;
         this.endTime = endTime;
+        this.bannerurl = bannerurl;
         this.details = details;
         this.enabled = enabled;
+    }
+
+    public String getBannerurl() {
+        return bannerurl;
+    }
+
+    public void setBannerurl(String bannerurl) {
+        this.bannerurl = bannerurl;
     }
 
     public List<PostDetail> getDetails() {

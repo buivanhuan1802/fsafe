@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_background"
+    tools:context=".view.supplier.SupplierEditProductActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/side_menu_icon" />
+
+    <TextView
+        android:id="@+id/txtFullName"
+        android:layout_width="266dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal"
+        android:text="Edit Product"
+        android:textColor="@color/darkColor"
+        android:textSize="25dp"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.gridlayout.widget.GridLayout
+
+        android:layout_width="402dp"
+        android:layout_height="653dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="3dp"
+        app:columnCount="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtFullName"
+        app:rowCount="4">
+
+        <androidx.gridlayout.widget.GridLayout
+
+            android:layout_width="402dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="3dp"
+            app:columnCount="2"
+            app:layout_column="0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtFullName"
+            app:layout_row="0"
+            app:rowCount="4">
+
+            <TextView
+                android:layout_width="130dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="10dp"
+                android:text="ProductName: "
+                android:textColor="@color/darkColor"
+                android:textSize="20dp"
+                app:layout_column="0"
+                app:layout_row="0" />
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="10dp"
+                android:text="Price: "
+                android:textColor="@color/darkColor"
+                android:textSize="20dp"
+                app:layout_column="0"
+                app:layout_row="1" />
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="10dp"
+                android:text="Status: "
+                android:textColor="@color/darkColor"
+                android:textSize="20dp"
+                app:layout_column="0"
+                app:layout_row="2" />
+
+            <EditText
+                android:id="@+id/edtProductName"
+                android:layout_width="250dp"
+                android:layout_marginStart="10dp"
+                android:height="30dp"
+                android:background="@color/whiteColor"
+                android:textColor="@color/darkColor"
+                android:textSize="20dp"
+                app:layout_column="1"
+                app:layout_row="0" />
+
+            <EditText
+                android:id="@+id/edtProductPrice"
+                android:layout_width="250dp"
+                android:layout_marginStart="10dp"
+                android:height="30dp"
+                android:background="@color/whiteColor"
+                android:textColor="@color/darkColor"
+                android:textSize="20dp"
+                app:layout_column="1"
+                app:layout_row="1" />
+
+            <androidx.gridlayout.widget.GridLayout
+                android:layout_width="250dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="1dp"
+                app:columnCount="2"
+                app:rowCount="1">
+
+                <RadioGroup
+                    android:id="@+id/rdiProductStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:checkedButton="@id/rdiEnable"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rdiEnable"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="5dp"
+                        android:text="Enable"
+                        android:textColor="@color/darkColor"
+                        android:textSize="20dp" />
+
+                    <RadioButton
+                        android:id="@+id/rdiDisable"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:text="Disable"
+                        android:textColor="@color/darkColor"
+                        android:textSize="20dp" />
+                </RadioGroup>
+            </androidx.gridlayout.widget.GridLayout>
+
+        </androidx.gridlayout.widget.GridLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="Select an Image:"
+            android:textColor="@color/darkColor"
+            android:textSize="20dp"
+            app:layout_column="0"
+            app:layout_row="1" />
+
+        <ImageView
+            android:id="@+id/imvProductImage"
+            android:layout_width="match_parent"
+            android:layout_height="232dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:scaleType="center"
+            android:src="@drawable/border_imageview"
+            app:layout_column="0"
+            app:layout_row="2">
+
+        </ImageView>
+
+        <androidx.gridlayout.widget.GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="90dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="1dp"
+            app:columnCount="2"
+            app:layout_column="0"
+            app:layout_row="3"
+            app:rowCount="1">
+
+            <Button
+                android:id="@+id/btnProductSave"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:text="Save"
+                app:layout_column="0"
+                app:layout_row="0" />
+
+            <Button
+                android:id="@+id/btnProductDelete"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="40dp"
+                android:text="Cancel"
+                app:layout_column="1"
+                app:layout_row="0" />
+        </androidx.gridlayout.widget.GridLayout>
+
+
+    </androidx.gridlayout.widget.GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

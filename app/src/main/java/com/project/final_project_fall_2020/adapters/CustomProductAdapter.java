@@ -7,36 +7,37 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import java.util.List;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.project.final_project_fall_2020.R;
-import com.project.final_project_fall_2020.model.Post;
+import com.project.final_project_fall_2020.model.Product;
 import com.squareup.picasso.Picasso;
 
-public class CustomPostAdapter extends BaseAdapter {
+import java.util.List;
+
+public class CustomProductAdapter extends BaseAdapter {
     private int layout;
     private Activity activity;
-    private List<Post> posts;
+    private List<Product> products;
 
-    public CustomPostAdapter(Activity activity, int layout, List<Post> posts) {
+    public CustomProductAdapter(Activity activity, int layout, List<Product> products) {
         this.layout = layout;
         this.activity = activity;
-        this.posts = posts;
+        this.products = products;
 
     }
 
     @Override
     public int getCount() {
-        return posts.size();
+        return products.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return posts.get(position);
+        return products.get(position);
     }
 
     @Override
@@ -46,27 +47,32 @@ public class CustomPostAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        TextView postTitle;
-        TextView openTime;
+        TextView productName;
+        TextView price;
+        TextView dateCreated;
         ImageView imageView;
         if (convertView == null) {
             convertView = activity.getLayoutInflater().inflate(layout, null);
-            postTitle = convertView.findViewById(R.id.productName);
-            openTime = convertView.findViewById(R.id.postOpeningTime);
+            productName = convertView.findViewById(R.id.productName);
+            price = convertView.findViewById(R.id.productPrice);
+            dateCreated = convertView.findViewById(R.id.dateCreated);
             imageView = convertView.findViewById(R.id.productImage);
-            convertView.setTag(R.id.productName, postTitle);
-            convertView.setTag(R.id.postOpeningTime, openTime);
+            convertView.setTag(R.id.productName, productName);
+            convertView.setTag(R.id.productPrice, price);
+            convertView.setTag(R.id.dateCreated, dateCreated);
             convertView.setTag(R.id.productImage, imageView);
 
         } else {
-            postTitle = (TextView) convertView.getTag(R.id.productName);
-            openTime = (TextView) convertView.getTag(R.id.postOpeningTime);
+            productName = (TextView) convertView.getTag(R.id.productName);
+            price = (TextView) convertView.getTag(R.id.productPrice);
+            dateCreated = (TextView) convertView.getTag(R.id.dateCreated);
             imageView = (ImageView) convertView.getTag(R.id.productImage);
         }
-        Post post = posts.get(position);
-        postTitle.setText(post.getPostTitle());
-        openTime.setText("Opening: " + post.getStartTime() + " - " + post.getEndTime());
-        StorageReference srf = FirebaseStorage.getInstance().getReference(post.getBannerurl());
+        Product selected = products.get(position);
+        productName.setText(selected.getProductName());
+        price.setText(selected.getPrice() + "");
+        dateCreated.setText(selected.getDateCreated());
+        StorageReference srf = FirebaseStorage.getInstance().getReference(selected.getProductImage().get(0));
         srf.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {

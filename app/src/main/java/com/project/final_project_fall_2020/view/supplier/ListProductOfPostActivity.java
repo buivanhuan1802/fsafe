@@ -12,35 +12,33 @@ import android.widget.ListView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.project.final_project_fall_2020.R;
-import com.project.final_project_fall_2020.presenter.SupplierPostManagementActivityContract;
-import com.project.final_project_fall_2020.presenter.SupplierPostManagementPresenter;
-import com.project.final_project_fall_2020.model.Post;
-import com.project.final_project_fall_2020.model.PostDetail;
+import com.project.final_project_fall_2020.model.Product;
+import com.project.final_project_fall_2020.presenter.ListProductActivityContract;
+import com.project.final_project_fall_2020.presenter.ListProductPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PostManagementActivity extends AppCompatActivity implements SupplierPostManagementActivityContract.View {
-
-    SupplierPostManagementActivityContract.Presenter presenter;
+public class ListProductOfPostActivity extends AppCompatActivity implements ListProductActivityContract.View {
+    ListProductActivityContract.Presenter presenter;
     DatabaseReference db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_post_management);
-        presenter = new SupplierPostManagementPresenter(this);
+        setContentView(R.layout.activity_list_product_of_post);
+        presenter = new ListProductPresenter(this);
 
-    }
-
-    @Override
-    public ListView getListViewPost() {
-        return findViewById(R.id.listProduct);
     }
 
     @Override
     public Context getContext() {
         return getApplicationContext();
+    }
+
+    @Override
+    public ListView getListProduct() {
+        return findViewById(R.id.listProduct);
     }
 
     @Override
@@ -54,7 +52,12 @@ public class PostManagementActivity extends AppCompatActivity implements Supplie
     }
 
     @Override
+    public Intent getPassedIntent() {
+        return super.getIntent();
+    }
+
+    @Override
     public Button getCreateButton() {
-        return findViewById(R.id.btnCreatePost);
+        return findViewById(R.id.btnAddProduct);
     }
 }

@@ -8,12 +8,13 @@ public class Product implements Serializable {
     public final class EntityName {
         public static final String TABLE_NAME = "products";
         public static final String ID = "id";
-        public static final String SUPPLIER = "supplier";
+        public static final String SUPPLIER = "supplierId";
         public static final String PRODUCT_NAME = "productName";
         public static final String PRICE = "price";
         public static final String DATE_CREATED = "dateCreated";
         public static final String DATE_UPDATED = "dateUpdated";
         public static final String PRODUCT_IMAGES = "productImage";
+        public static final String CATEGORY = "category";
     }
 
     private long id;
@@ -22,13 +23,14 @@ public class Product implements Serializable {
     private double price;
     private String dateCreated;
     private String dateUpdated;
+    private String category;
     private List<String> productImage;
 
     public Product() {
 
     }
 
-    public Product(long id, long supplierId, String productName, double price, String dateCreated, String dateUpdated, List<String> productImage) {
+    public Product(long id, long supplierId, String productName, double price, String category, String dateCreated, String dateUpdated, List<String> productImage) {
         this.id = id;
         this.supplierId = supplierId;
         this.productName = productName;
@@ -36,6 +38,15 @@ public class Product implements Serializable {
         this.dateCreated = dateCreated;
         this.dateUpdated = dateUpdated;
         this.productImage = productImage;
+        this.category = category;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public long getId() {
