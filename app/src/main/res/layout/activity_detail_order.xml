@@ -6,6 +6,200 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/app_background"
+    tools:context=".view.supplier.DetailOrderActivity">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/side_menu_icon" />
+
+    <TextView
+        android:id="@+id/txtFullName"
+        android:layout_width="266dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal"
+        android:text="Order Detail"
+        android:textColor="@color/darkColor"
+        android:textSize="25dp"
+        app:layout_constraintStart_toEndOf="@+id/image"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/gridLayout3"
+        android:layout_width="407dp"
+        android:layout_height="160dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="1dp"
+        app:columnCount="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtFullName"
+        app:rowCount="10">
+
+
+        <TextView
+            android:id="@+id/detailOrderIdTitle"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:width="100dp"
+            android:fontFamily="sans-serif-black"
+            android:gravity="left"
+            android:text="orderID : "
+
+            android:textColor="@color/darkColor"
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/detailOrderId"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:width="100dp"
+            android:fontFamily="sans-serif-black"
+            android:gravity="left"
+            android:text="001"
+
+            android:textColor="@color/darkColor"
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/detailDateCreatedTitle"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:width="100dp"
+            android:height="20dp"
+            android:gravity="left"
+            android:text="dateCreated: "
+            android:textColor="@color/darkColor"
+
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/detailDateCreated"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:width="100dp"
+            android:height="20dp"
+            android:gravity="left"
+            android:text="2020-11-18"
+            android:textColor="@color/darkColor"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/detailCreatedByTitle"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:width="100dp"
+            android:height="20dp"
+            android:gravity="left"
+            android:text="createdBy: "
+            android:textColor="@color/darkColor"
+
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/detailCreatedBy"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:width="100dp"
+            android:height="20dp"
+            android:gravity="left"
+            android:text="Bui Van Huan"
+            android:textColor="@color/darkColor"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/detailStatusTitle"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:width="100dp"
+            android:height="20dp"
+            android:gravity="left"
+            android:text="status: "
+            android:textColor="@color/darkColor"
+
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/detailStatus"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:width="100dp"
+            android:height="20dp"
+            android:gravity="left"
+            android:text="In Processing"
+
+            android:textColor="@color/redColor"
+            android:textSize="20dp" />
+
+
+    </androidx.gridlayout.widget.GridLayout>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="@string/listProduct"
+        android:textColor="@color/darkColor"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gridLayout3" />
+
+    <androidx.gridlayout.widget.GridLayout
+        android:layout_width="412dp"
+        android:layout_height="442dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="8dp"
+        app:columnCount="5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:rowCount="4">
+
+        <TextView
+            android:layout_width="130dp"
+            android:layout_height="30dp"
+            android:gravity="left"
+            android:text="P_NAME"
+            android:textColor="@color/darkColor"
+            android:textSize="15dp" />
+
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:gravity="left"
+            android:text="QTY"
+            android:textColor="@color/darkColor"
+            android:textSize="16dp" />
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:gravity="left"
+            android:text="PRICE"
+            android:textColor="@color/darkColor"
+            android:textSize="16dp" />
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:gravity="left"
+            android:text="AMOUNT"
+            android:textColor="@color/darkColor"
+            android:textSize="16dp" />
+    </androidx.gridlayout.widget.GridLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
     android:fitsSystemWindows="true"
     tools:context=".view.customer.MainActivityForCustomer"
     tools:openDrawer="start">
@@ -237,3 +431,4 @@
 
     </ScrollView>
 </androidx.drawerlayout.widget.DrawerLayout>
+
