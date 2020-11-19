@@ -22,7 +22,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="16dp"
         android:gravity="center_horizontal"
-        android:text="Edit Product"
+        android:text="Create Product"
         android:textColor="@color/darkColor"
         android:textSize="25dp"
         app:layout_constraintStart_toEndOf="@+id/imageView"
@@ -95,7 +95,7 @@
                 app:layout_row="3" />
 
             <EditText
-                android:id="@+id/edtEditProductName"
+                android:id="@+id/edtCreateProductName"
                 android:layout_width="250dp"
                 android:layout_marginStart="10dp"
                 android:height="30dp"
@@ -106,7 +106,7 @@
                 app:layout_row="0" />
 
             <EditText
-                android:id="@+id/edtEditProductPrice"
+                android:id="@+id/edtCreateProductPrice"
                 android:layout_width="250dp"
                 android:layout_marginStart="10dp"
                 android:height="30dp"
@@ -117,9 +117,9 @@
                 app:layout_row="1" />
 
             <Spinner
-                android:id="@+id/spEditCategory"
+                android:id="@+id/spCreateCategory"
                 android:layout_width="250dp"
-                android:layout_height="30dp"
+                android:layout_height="23dp"
                 android:layout_marginStart="10dp"
                 android:background="@color/whiteColor"
                 app:layout_column="1"
@@ -172,7 +172,7 @@
             app:layout_row="1" />
 
         <ImageView
-            android:id="@+id/imvPostBanner"
+            android:id="@+id/imvCreateProduct"
             android:layout_width="match_parent"
             android:layout_height="232dp"
             android:layout_marginStart="20dp"
@@ -196,7 +196,7 @@
             app:rowCount="1">
 
             <Button
-                android:id="@+id/btnPostSave"
+                android:id="@+id/btnCreateSave"
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:text="Save"
@@ -204,7 +204,7 @@
                 app:layout_row="0" />
 
             <Button
-                android:id="@+id/btnPostCancel"
+                android:id="@+id/btnCreateCancel"
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="40dp"

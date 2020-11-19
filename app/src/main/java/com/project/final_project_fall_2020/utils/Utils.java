@@ -1,5 +1,11 @@
 package com.project.final_project_fall_2020.utils;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
+import com.google.gson.Gson;
+import com.project.final_project_fall_2020.model.User;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -29,5 +35,22 @@ public class Utils {
         String stringVal = year + month + day + count + "";
         long id = Long.parseLong(stringVal);
         return id;
+    }
+
+    public static String getSystemDate() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        return sdf.format(Calendar.getInstance().getTime());
+    }
+
+    public static User getLoginedUser(Context context) {
+        try {
+            SharedPreferences sf = context.getSharedPreferences(CommonConstant.PREFERENCE_LOGINED, Context.MODE_PRIVATE);
+            String data = sf.getString(CommonConstant.PREFERENCE_LOGINED, "");
+            Gson gson = new Gson();
+            User logined = gson.fromJson(data, User.class);
+            return logined;
+        } catch (Exception e) {
+            return null;
+        }
     }
 }

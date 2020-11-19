@@ -22,8 +22,10 @@ import com.project.final_project_fall_2020.adapters.CustomPostAdapter;
 import com.project.final_project_fall_2020.model.Post;
 import com.project.final_project_fall_2020.model.User;
 import com.project.final_project_fall_2020.utils.CommonConstant;
+import com.project.final_project_fall_2020.utils.Utils;
 import com.project.final_project_fall_2020.view.supplier.CreateSupplierActivity;
 import com.project.final_project_fall_2020.view.supplier.ListProductOfPostActivity;
+import com.project.final_project_fall_2020.view.supplier.SupplierCreatePostActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -50,26 +52,24 @@ public class SupplierPostManagementPresenter implements SupplierPostManagementAc
 
     @Override
     public void loadDataToListView() {
-        SharedPreferences sf = view.getContext().getSharedPreferences(CommonConstant.PREFERENCE_LOGINED, Context.MODE_PRIVATE);
-        String data = sf.getString(CommonConstant.PREFERENCE_LOGINED, "");
-        if (!data.equals("")) {
-            Gson gson = new Gson();
-            User logined = gson.fromJson(data, User.class);
-            db.child(Post.EntityName.TABLE_NAME).orderByChild(Post.EntityName.SUPPLIER).equalTo(logined.getId()).addValueEventListener(new ValueEventListener() {
+        User logined = Utils.getLoginedUser(view.getContext());
+        if (logined != null) {
+            db.child(Post.EntityName.TABLE_NAME).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    GenericTypeIndicator<HashMap<String, Post>> typeIndicator = new GenericTypeIndicator<HashMap<String, Post>>() {
+                    GenericTypeIndicator<Post> typeIndicator = new GenericTypeIndicator<Post>() {
                     };
-                    HashMap<String, Post> posts = snapshot.getValue(typeIndicator);
-                    Toast.makeText(view.getContext(), "insde", Toast.LENGTH_LONG).show();
-                    if (posts == null) {
+                    List<Post> list = new ArrayList<>();
+                    for (DataSnapshot dt : snapshot.getChildren()) {
+                        Post post = dt.getValue(typeIndicator);
+                        if (post.getUserId() == logined.getId()) {
+                            list.add(post);
+                        }
+                    }
+                    if (list.isEmpty()) {
                         Toast.makeText(view.getContext(), "Nothing to display", Toast.LENGTH_LONG).show();
                     } else {
-                        List<Post> filterd = new ArrayList<>();
-                        for (Post x : posts.values()) {
-                            filterd.add(x);
-                        }
-                        CustomPostAdapter adapter = new CustomPostAdapter(view.getActivity(), R.layout.custom_listview_post, filterd);
+                        CustomPostAdapter adapter = new CustomPostAdapter(view.getActivity(), R.layout.custom_listview_post, list);
                         view.getListViewPost().setAdapter(adapter);
                     }
                 }
@@ -79,7 +79,6 @@ public class SupplierPostManagementPresenter implements SupplierPostManagementAc
 
                 }
             });
-
         } else {
 
         }
@@ -106,7 +105,7 @@ public class SupplierPostManagementPresenter implements SupplierPostManagementAc
         view.getCreateButton().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(view.getContext(), CreateSupplierActivity.class);
+                Intent intent = new Intent(view.getContext(), SupplierCreatePostActivity.class);
                 view.startActivity(intent);
             }
         });
