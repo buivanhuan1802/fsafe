@@ -28,7 +28,7 @@ public class OfficeMealAsCustomerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_office_meal);
-        ref  = FirebaseDatabase.getInstance().getReference();
+//        ref  = FirebaseDatabase.getInstance().getReference();
 //        listView = findViewById(R.id.listView);
 //        List<Post> listPost = new ArrayList<>();
 //        ArrayAdapter adapter = new ArrayAdapter<Post>(this, R.layout.activity_office_meal, listView);

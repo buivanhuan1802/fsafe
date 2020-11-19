@@ -7,15 +7,4 @@
     android:background="@drawable/app_background"
     tools:context=".view.customer.OfficeMealAsCustomerActivity" >
 
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="129dp"
-        tools:layout_editor_absoluteY="241dp" >
-
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </ListView>
 </androidx.constraintlayout.widget.ConstraintLayout>

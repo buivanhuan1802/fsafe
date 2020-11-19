@@ -39,7 +39,11 @@
         <activity
             android:name=".view.customer.MainActivityForCustomer"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         android:label=""
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -48,22 +52,16 @@
 
 
         <activity android:name=".view.admin.AdminLoginActivity" />
-        <activity android:name=".view.supplier.CreatePostActivity" />
         <activity android:name=".view.supplier.CreateSupplierActivity" />
         <activity android:name=".view.customer.LoginAsCustomerActivity"/>
 
 
         <activity
-            android:name=".view.supplier.LoginActivity"
+            android:name=".view.supplier.SupplierLoginActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".view.StartActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

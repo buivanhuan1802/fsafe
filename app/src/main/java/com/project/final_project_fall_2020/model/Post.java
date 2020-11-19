@@ -5,6 +5,20 @@ import java.sql.Date;
 import java.util.List;
 
 public class Post implements Serializable {
+    public final class EntityName {
+        public static final String TABLE_NAME = "posts";
+        public static final String ID = "id";
+        public static final String SUPPLIER = "supplierId";
+        public static final String POST_TITLE = "postTitle";
+        public static final String POST_CONTENT = "postContent";
+        public static final String DATE_CREATED = "dateCreated";
+        public static final String DATE_UPDATED = "dateUpdated";
+        public static final String START_TIME = "startTime";
+        public static final String END_TIME = "endTime";
+        public static final String ENABLED = "enabled";
+        public static final String DETAILS = "details";
+    }
+
     private int postId;
     private int userId;
     private String postTitle;

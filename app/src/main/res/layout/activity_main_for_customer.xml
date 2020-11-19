@@ -50,15 +50,15 @@
 
             <TextView
                 android:id="@+id/txtFullName"
-                android:layout_width="266dp"
+                android:layout_width="300dp"
                 android:layout_height="35dp"
-                android:layout_marginStart="100dp"
+                android:layout_marginStart="80dp"
                 android:layout_marginTop="16dp"
                 android:gravity="center_horizontal"
                 android:text="@string/wellCome"
                 android:textColor="@color/darkColor"
                 android:textSize="25dp"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.gridlayout.widget.GridLayout
