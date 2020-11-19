@@ -8,7 +8,7 @@ public class Post implements Serializable {
     public final class EntityName {
         public static final String TABLE_NAME = "posts";
         public static final String ID = "id";
-        public static final String SUPPLIER = "supplierId";
+        public static final String SUPPLIER = "userId";
         public static final String POST_TITLE = "postTitle";
         public static final String POST_CONTENT = "postContent";
         public static final String DATE_CREATED = "dateCreated";
@@ -36,7 +36,7 @@ public class Post implements Serializable {
     }
 
     public Post(long id, long supplierId, String postTitle, String postContent, String dateCreated, String dateUpdated, String startTime, String endTime, String bannerurl, List<PostDetail> details, boolean enabled) {
-        this.postId= id;
+        this.postId = id;
         this.userId = supplierId;
         this.postTitle = postTitle;
         this.postContent = postContent;
@@ -46,7 +46,7 @@ public class Post implements Serializable {
         this.endTime = endTime;
         this.enabled = enabled;
         this.bannerurl = bannerurl;
-        this.details= details;
+        this.details = details;
     }
 
     public long getPostId() {
@@ -65,7 +65,7 @@ public class Post implements Serializable {
         return details;
     }
 
-    public void setPostId(int postId) {
+    public void setPostId(long postId) {
         this.postId = postId;
     }
 
@@ -73,7 +73,7 @@ public class Post implements Serializable {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(long userId) {
         this.userId = userId;
     }
 

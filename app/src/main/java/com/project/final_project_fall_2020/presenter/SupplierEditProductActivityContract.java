@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 
 import androidx.annotation.Nullable;
 
@@ -39,6 +40,8 @@ public interface SupplierEditProductActivityContract {
         RadioButton rdDisable();
 
         RadioButton rdEnable();
+
+        Spinner spCategory();
     }
 
     interface Presenter {

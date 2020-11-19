@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.view.View;
 import android.webkit.MimeTypeMap;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -29,12 +30,16 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.google.gson.Gson;
+import com.project.final_project_fall_2020.model.AppRole;
+import com.project.final_project_fall_2020.model.Category;
 import com.project.final_project_fall_2020.model.Order;
 import com.project.final_project_fall_2020.model.Post;
+import com.project.final_project_fall_2020.model.PostDetail;
 import com.project.final_project_fall_2020.model.Product;
 import com.project.final_project_fall_2020.model.User;
 import com.project.final_project_fall_2020.utils.CommonConstant;
 import com.project.final_project_fall_2020.utils.ImageProcessing;
+import com.project.final_project_fall_2020.utils.Utils;
 import com.project.final_project_fall_2020.view.supplier.SupplierEditProductActivity;
 import com.squareup.picasso.Picasso;
 
@@ -47,6 +52,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
+
+import okhttp3.internal.Util;
 
 public class SupplierEditProductPresenter implements SupplierEditProductActivityContract.Presenter {
     private SupplierEditProductActivityContract.View view;
@@ -65,7 +72,6 @@ public class SupplierEditProductPresenter implements SupplierEditProductActivity
 
     void intiComponent() {
         loadStartData();
-
         setOncheckedChangeRdioGroup();
         setOnclickBtnDelete();
         setOnclickProductUImageView();
@@ -104,15 +110,14 @@ public class SupplierEditProductPresenter implements SupplierEditProductActivity
             @Override
             public void onClick(View v) {
                 try {
-                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
                     Gson gson = new Gson();
                     String productName = view.getEdtProductName().getText().toString();
                     String price = view.getEdtPrice().getText().toString();
-                    String objectProduct = view.getPassedData().getStringExtra(ListProductPresenter.INTENT_KEY_TO_EDIT_PRODUCT);
+                    String object = view.getPassedData().getStringExtra(ListProductPresenter.INTENT_KEY_TO_EDIT_PRODUCT);
                     String url = imp.upLoadImageToCloud(filePath, view.getConext());
                     DatabaseReference ref = db.child(Product.EntityName.TABLE_NAME);
-                    if (objectProduct != null && !objectProduct.equals("")) {
-                        Product current = gson.fromJson(objectProduct, Product.class);
+                    if (object != null && !object.equals("")) {
+                        Product current = gson.fromJson(object, Product.class);
                         if (!url.equals("")) {
                             List<String> listNewImageUrl = new ArrayList<>();
                             listNewImageUrl.add(url);
@@ -120,29 +125,17 @@ public class SupplierEditProductPresenter implements SupplierEditProductActivity
                         }
                         current.setProductName(productName);
                         current.setPrice(Double.parseDouble(price));
-                        String updatedDate = sdf.format(Calendar.getInstance().getTime());
+                        String updatedDate = Utils.getSystemDate();
+                        Category cate = (Category) view.spCategory().getSelectedItem();
                         current.setDateUpdated(updatedDate);
+                        current.setCategory(cate.getId());
                         ref.child(current.getId() + "").setValue(current);
                         Toast.makeText(view.getConext(), "Save Successful !", Toast.LENGTH_LONG).show();
 
-                    } else {
-                        long productId = count();
-                        SharedPreferences sf = view.getConext().getSharedPreferences(CommonConstant.PREFERENCE_LOGINED, Context.MODE_PRIVATE);
-                        String data = sf.getString(CommonConstant.PREFERENCE_LOGINED, "");
-                        User logined = gson.fromJson(data, User.class);
-                        String createdDate = sdf.format(Calendar.getInstance().getTime());
-                        List<String> listImage = new ArrayList<>();
-                        listImage.add(url);
-                        Product product = new Product(productId, logined.getId(), productName, Double.parseDouble(price), "1", createdDate, createdDate, listImage);
-                        ref.push().getKey();
-                        List<Product> list = new ArrayList<>();
-                        list.add(product);
-                        ref.setValue(list);
-                        view.getEdtProductName().setText("");
-                        view.getEdtPrice().setText("");
-                        view.getProductImageView().setImageDrawable(null);
-                        Toast.makeText(view.getConext(), "Add Successful !", Toast.LENGTH_LONG).show();
                     }
+                    view.getEdtProductName().setText("");
+                    view.getEdtPrice().setText("");
+                    view.getProductImageView().setImageDrawable(null);
                 } catch (Exception e) {
                     Toast.makeText(view.getConext(), "Opps! something went wrong", Toast.LENGTH_LONG).show();
                 }
@@ -174,11 +167,43 @@ public class SupplierEditProductPresenter implements SupplierEditProductActivity
     public void loadStartData() {
         String data = view.getPassedData().getStringExtra(ListProductPresenter.INTENT_KEY_TO_EDIT_PRODUCT);
         if (data == null || data.equals("")) {
+            db.child(Category.EntityName.TABLE_NAME).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    GenericTypeIndicator<List<Category>> typeIndicator = new GenericTypeIndicator<List<Category>>() {
+                    };
+                    List<Category> categories = snapshot.getValue(typeIndicator);
+                    ArrayAdapter<Category> adapter = new ArrayAdapter<>(view.getConext(), android.R.layout.simple_list_item_1, categories);
+                    view.spCategory().setAdapter(adapter);
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
             return;
         }
+
         Product product = extractDataPassedFromProductListActivity(data);
         view.getEdtProductName().setText(product.getProductName());
         view.getEdtPrice().setText(product.getPrice() + "");
+        db.child(Category.EntityName.TABLE_NAME).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                GenericTypeIndicator<List<Category>> typeIndicator = new GenericTypeIndicator<List<Category>>() {
+                };
+                List<Category> categories = snapshot.getValue(typeIndicator);
+                ArrayAdapter<Category> adapter = new ArrayAdapter<>(view.getConext(), android.R.layout.simple_list_item_1, categories);
+                view.spCategory().setAdapter(adapter);
+                view.spCategory().setSelection(Integer.parseInt(product.getCategory()));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         srf = FirebaseStorage.getInstance().getReference(product.getProductImage().get(0));
         srf.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
@@ -200,19 +225,5 @@ public class SupplierEditProductPresenter implements SupplierEditProductActivity
         return product;
     }
 
-    public long count() {
-        final long[] count = {0};
-        db.child(Product.EntityName.TABLE_NAME).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                count[0] = snapshot.getChildrenCount();
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-        return count[0];
-    }
 }
